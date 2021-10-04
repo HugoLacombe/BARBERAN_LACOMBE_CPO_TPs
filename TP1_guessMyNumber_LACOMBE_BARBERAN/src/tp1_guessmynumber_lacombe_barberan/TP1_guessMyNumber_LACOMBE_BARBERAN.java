@@ -34,7 +34,17 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
     int nbadev = generateurAleat.nextInt(); 
     //On demande à l'utilisateur de saissir un nombre entre 0 et 100 
     Scanner sc = new Scanner(System.in); 
-    
+    int nbutil; 
+    // initialisation du nombre saissi par l'utilisateur 
+    // boucle de saissie utilisateur
+    while(true){
+        System.out.println("Saissisez un nombre entier entre 0 et 100");
+        nbutil=sc.nextInt(); 
+        if(nbutil>=0 && nbutil<=100){
+        break ;
+    }
+    }
+    System.out.println(nbutil); 
     
     }
    
