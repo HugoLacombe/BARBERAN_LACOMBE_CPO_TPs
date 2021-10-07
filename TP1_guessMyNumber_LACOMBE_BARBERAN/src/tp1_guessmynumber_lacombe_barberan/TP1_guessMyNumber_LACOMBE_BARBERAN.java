@@ -35,6 +35,7 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
         // Mode facile => classique nb dee coups illimité indication plus simple 
         // Mode normal=> nombre de coup illimité grand nombre
         // Mode difficile => indication peu detaillée, nombre de coup limité, intervalle plus grand 
+        
         //Debut du jeu 
         Scanner sc = new Scanner(System.in);
 
