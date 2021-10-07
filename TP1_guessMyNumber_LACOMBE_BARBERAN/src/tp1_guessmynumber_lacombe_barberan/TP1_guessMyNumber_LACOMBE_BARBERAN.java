@@ -35,12 +35,9 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
         // Mode facile => classique nb dee coups illimité indication plus simple 
         // Mode normal=> nombre de coup illimité grand nombre
         // Mode difficile => indication peu detaillée, nombre de coup limité, intervalle plus grand 
-        
         //Debut du jeu 
-        
-        
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("Choissisez votre mode de difficulté");
         System.out.println("1) Mode facile\n2) Mode simple\n3) Mode difficile");
         int mode;
@@ -57,13 +54,8 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
             nbadev = generateurAleat.nextInt(100);
             System.out.println(nbadev); // A ENLEVER
 
-            
             // initialisation du nombre saissi par l'utilisateur 
-            
-           
             // boucle interraction utilisateur 
-            
-           
             while (true) {
                 while (true) {
                     System.out.println("Saissisez un nombre entier entre 0 et 100");
@@ -79,68 +71,62 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
                     System.out.print("Gagné!!");
                     break;
                 }
-              
 
                 if (nbutil < nbadev) {
-                    int D =(nbadev-nbutil);
-                    if (D>=20){
+                    int D = (nbadev - nbutil);
+                    if (D >= 20) {
                         System.out.println("Tu es encore trop loin, c'est plus grand !");
                         continue;
-                       
+
                     }
-                    if (D>=10){
-                         System.out.println("Tu te rapproches, plus grand encore !");
-                         continue;
-                       
+                    if (D >= 10) {
+                        System.out.println("Tu te rapproches, plus grand encore !");
+                        continue;
+
                     }
-                    if (D>=5){
-                       System.out.println("Tu chauffes, il te manque rien ! "); 
-                       continue;
+                    if (D >= 5) {
+                        System.out.println("Tu chauffes, il te manque rien ! ");
+                        continue;
                     }
-                    if (D>=1){
+                    if (D >= 1) {
                         System.out.println("Presque, un peu plus allez !");
                         continue;
+                    } else {
+                        System.out.println("trop petit !!");
                     }
-                    else{
-                        System.out.println("trop petit !!");    
-                    }
-                   
-                    
-                    
+
                 }
                 if (nbutil > nbadev) {
-                        int D1 =(nbutil-nbadev);
-                    if (D1>=20){
+                    int D1 = (nbutil - nbadev);
+                    if (D1 >= 20) {
                         System.out.println("Tu es encore trop loin, c'est plus petit !");
                         continue;
-                       
+
                     }
-                    if (D1>=10){
-                         System.out.println("Tu te rapproches, plus petit encore !");
-                         continue;
-                       
+                    if (D1 >= 10) {
+                        System.out.println("Tu te rapproches, plus petit encore !");
+                        continue;
+
                     }
-                    if (D1>=5){
-                       System.out.println("Tu chauffes, il te manque rien ! "); 
-                       continue;
-                    }
-                    if (D1>=1){
-                        System.out.println("Presque, un peu moins allez !");
+                    if (D1 >= 5) {
+                        System.out.println("Tu chauffes, il te manque rien ! ");
                         continue;
                     }
-                    else{
-                        System.out.println("trop grand!!");    
+                    if (D1 >= 1) {
+                        System.out.println("Presque, un peu moins allez !");
+                        continue;
+                    } else {
+                        System.out.println("trop grand!!");
                     }
-                }
-                
-               
                 }
 
             }
+
+        }
         // Mode simple 
-        if (mode==2){
+        if (mode == 2) {
             nbadev = generateurAleat.nextInt(100);
-               while (true) {
+            while (true) {
                 while (true) {
                     System.out.println("Saissisez un nombre entier entre 0 et 100");
                     nbutil = sc.nextInt();
@@ -155,23 +141,20 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
                     System.out.print("Gagné!!");
                     break;
                 }
-              
 
                 if (nbutil < nbadev) {
-                    System.out.println("Plus grand");  
+                    System.out.println("Plus grand");
                 }
                 if (nbutil > nbadev) {
-                System.out.println("Plus petit");
-                
-                }
-                
-               
+                    System.out.println("Plus petit");
+
                 }
 
-            
-        }
-        
-            System.out.println(" Nombre de tentative : " +tent);
+            }
 
         }
+
+        System.out.println(" Nombre de tentative : " + tent);
+
     }
+}
