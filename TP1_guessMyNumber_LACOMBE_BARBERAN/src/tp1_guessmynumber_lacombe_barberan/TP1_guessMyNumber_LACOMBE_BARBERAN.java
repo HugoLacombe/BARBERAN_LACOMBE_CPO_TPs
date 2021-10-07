@@ -7,7 +7,7 @@ package tp1_guessmynumber_lacombe_barberan;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
+/** 
  * EXERCICE 3
  *
  * @author Hugo LACOMBE/Baptiste BArberan
@@ -97,7 +97,7 @@ public class TP1_guessMyNumber_LACOMBE_BARBERAN {
                     } else {
                         System.out.println("trop petit !!");
                     }
-
+ 
                 }
                 if (nbutil > nbadev) {
                     int D1 = (nbutil - nbadev);// différence pour connaître la position du nombre de l'utilisateur par rapport au nombre à deviner 
