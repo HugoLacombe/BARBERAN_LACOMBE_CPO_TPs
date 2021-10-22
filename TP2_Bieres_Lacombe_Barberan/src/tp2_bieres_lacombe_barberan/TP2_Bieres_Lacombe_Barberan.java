@@ -15,13 +15,20 @@ public class TP2_Bieres_Lacombe_Barberan {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        BouteilleBiere uneBiere = new BouteilleBiere() ;
-        uneBiere.nom="Cuvée des trolls";
-        uneBiere.degreAlcool=7.0;
-        uneBiere.ouverte=false; 
-        uneBiere.brasserie="Dubuisson";
+        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls",
+7.0 ,"Dubuisson") ;
+/*/Lorsque nous utilisons le constructeur par défaut => BouteilleBiere uneBiere = new BouteilleBiere()
+    On n'affecte pas les valeurs des différents attributs directement lors de l'initialisaton de notre variable qui appartient à 
+        la classe BouteilleBiere
+        
+*/
         uneBiere.lireEtiquette();
+        BouteilleBiere secondeBiere = new BouteilleBiere("Leffe",
+6.6,"Abbaye de Leffe") ;
 
+     
+        secondeBiere.lireEtiquette();
+        
     }
     
 }
