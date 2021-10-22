@@ -15,6 +15,13 @@ public class TP2_Bieres_Lacombe_Barberan {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        BouteilleBiere uneBiere = new BouteilleBiere() ;
+        uneBiere.nom="Cuvée des trolls";
+        uneBiere.degreAlcool=7.0;
+        uneBiere.ouverte=false; 
+        uneBiere.brasserie="Dubuisson";
+        uneBiere.lireEtiquette();
+
     }
     
 }
