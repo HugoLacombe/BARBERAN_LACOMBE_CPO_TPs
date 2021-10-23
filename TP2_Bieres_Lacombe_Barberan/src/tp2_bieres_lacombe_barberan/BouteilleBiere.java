@@ -25,6 +25,16 @@ uneBrasserie) {
  brasserie = uneBrasserie;
  ouverte = false;
 }
+
+public void Decapsuler(){
+    if(ouverte==false){
+        ouverte=true;
+      
+    }
+    else{
+        System.out.println("Erreur la bière était déjà ouverte");
+    }
+}
 }
 
  

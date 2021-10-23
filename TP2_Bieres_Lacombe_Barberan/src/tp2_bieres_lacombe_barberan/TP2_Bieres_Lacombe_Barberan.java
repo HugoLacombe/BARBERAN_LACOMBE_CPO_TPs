@@ -19,15 +19,19 @@ public class TP2_Bieres_Lacombe_Barberan {
 7.0 ,"Dubuisson") ;
 /*/Lorsque nous utilisons le constructeur par défaut => BouteilleBiere uneBiere = new BouteilleBiere()
     On n'affecte pas les valeurs des différents attributs directement lors de l'initialisaton de notre variable qui appartient à 
-        la classe BouteilleBiere
+        la classe BouteilleBiere quand c'est par le constructeur est celui par défault . 
+        Ici on en a crée un nouv constructeur qui nous permet d'affecter tous les attributs de la classe
         
 */
         uneBiere.lireEtiquette();
         BouteilleBiere secondeBiere = new BouteilleBiere("Leffe",
 6.6,"Abbaye de Leffe") ;
-
-     
-        secondeBiere.lireEtiquette();
+          secondeBiere.lireEtiquette();
+          
+        BouteilleBiere troisBiere = new BouteilleBiere("Heinekein",8.0,"LA brasserie de jul");
+        troisBiere.lireEtiquette();
+        troisBiere.Decapsuler();
+        troisBiere.Decapsuler();
         
     }
     
