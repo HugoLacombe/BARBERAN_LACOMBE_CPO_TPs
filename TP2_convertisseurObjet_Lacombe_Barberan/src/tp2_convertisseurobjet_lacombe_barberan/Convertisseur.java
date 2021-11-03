@@ -13,37 +13,43 @@ public class Convertisseur {
 int nbConversions    ; // création modele 
      
     
-public  Convertisseur () { //methode convertisseur 
+public void Convertisseur () { //methode convertisseur 
  nbConversions = 0 ;
+ 
 }
 
 @Override
 public String toString () {// methode affichage 
- return "nb de conversions"+ nbConversions;
+ return "nombre de conversions réalisées "+ nbConversions;
 }
 
     public double CelciusVersKelvin(double tempCelcius) {
         double a = (tempCelcius + 273.5);
+        nbConversions+=1;
         return (a);
     }
     public double KelvinVersCelcius(double tempKelvin) {
         double a = (tempKelvin - 273.5);
+        nbConversions+=1;
         return (a);
     }
 
     public  double FarenheitVersCelcius(double tempFarenheit) {
         double a = (tempFarenheit - 32.0) / 1.8;
+        nbConversions+=1;
         return (a);
     }
 
     public double CelciusVersFarenheit(double tempCelcius) {
         double a = (tempCelcius * 1.8) + 32;
+        nbConversions+=1;
         return (a);
     }
 
     public double KelvinVersFarenheit(double tempKelvin) {
         double a = KelvinVersCelcius(tempKelvin);
         a = CelciusVersFarenheit(a);
+        nbConversions-=1;
         return a;
 
     }
@@ -51,8 +57,10 @@ public String toString () {// methode affichage
     public double FarenheitVersKelvin(double tempFarenheit) {
         double a = FarenheitVersCelcius(tempFarenheit);
         a = CelciusVersKelvin(a);
+        nbConversions-=1;
         return a;
     }
+
 
 
 }
