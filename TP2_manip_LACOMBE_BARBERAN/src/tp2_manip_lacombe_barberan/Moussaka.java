@@ -13,4 +13,8 @@ public class Moussaka {
     public Moussaka(int Calories){
         nbCalories=Calories;
     }
+    
+    public String toString(){
+        return this.nbCalories+"";
+    }
 }

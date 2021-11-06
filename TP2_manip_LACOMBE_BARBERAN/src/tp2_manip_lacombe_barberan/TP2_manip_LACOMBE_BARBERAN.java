@@ -4,6 +4,9 @@
  */
 package tp2_manip_lacombe_barberan;
 
+import java.util.Arrays;
+import java.util.Vector;
+
 /**
  *
  * @author 33695
@@ -49,12 +52,21 @@ Moussaka assiette667 = new Tartiflette(1) ;
 // Ces deux lignes sont fausses, une référence objet qui annonce référencer un type d’objet
 //ne peut pas en référencer un autre qui n’a aucun rapport 
         Moussaka[] tab = new Moussaka[10];
+        Vector<Moussaka> moussakas = new Vector();
         /*for (int i=0;i<10;i++){
 tab[i]= Moussaka plat  ;
 }*/
         for (int i = 0; i < 10; i++) {
             tab[i] = new Moussaka(100*i);
+            moussakas.add(new Moussaka(100*i));
         }
+                    moussakas.add(new Moussaka(100*11));
 
+        System.out.println(Arrays.toString(tab));
+               moussakas.clear();
+
+        System.out.println(moussakas);
+
+        
     }
 }
