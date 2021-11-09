@@ -16,4 +16,7 @@ public class Personne {
     public String toString () {// methode affichage 
  return "Le nom est "+nom+"\nLe prénom est"+prenom;
 }
+    //public String Personne(String nom1, String prenom1  ); // s'appuyer sur bouteille biere pour faire constructeur 
+    
 }
+
