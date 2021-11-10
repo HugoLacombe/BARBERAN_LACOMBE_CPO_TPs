@@ -12,6 +12,11 @@ public class Personne {
     
     String nom ;
     String prenom;
+    
+    public Personne(String Unnom,String Unprenom ){//Constructeur 
+        nom= Unnom;
+        prenom=Unprenom;
+    }
     @Override
     public String toString () {// methode affichage 
  return "Le nom est "+nom+"\nLe prénom est"+prenom;

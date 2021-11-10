@@ -13,6 +13,12 @@ public class Voiture {
  String Marque;
  int PuissanceCV;
  
+  public Voiture(String UnModele,String UneMarque,int UnePuissanceCV ){ //Constructeur 
+        Modele= UnModele;
+        Marque=UneMarque;
+        PuissanceCV =UnePuissanceCV;
+    }
+  
  @Override
  public String toString () {// methode affichage 
  return "Le modele est "+Modele+"\nLa marque est"+Marque+"\n La puissance est "+PuissanceCV  ;
