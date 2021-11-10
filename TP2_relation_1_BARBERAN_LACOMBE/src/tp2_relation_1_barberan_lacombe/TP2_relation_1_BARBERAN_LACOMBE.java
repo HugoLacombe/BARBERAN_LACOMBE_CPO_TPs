@@ -23,6 +23,14 @@ Personne bob = new Personne("Bobby", "Sixkiller");
 Personne reno = new Personne("Reno", "Raines");
 
 System.out.println("liste des voitures disponibles "+ uneClio +
-"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;}
+"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
 
+bob.liste_voitures[0] = uneClio ;
+bob.nbVoitures = 1 ;
+uneClio.proprietaire = bob ;
+
+System.out.println("la premiere voiture de Bob est " +
+bob.liste_voitures[0] ) ;
+
+}
 }
