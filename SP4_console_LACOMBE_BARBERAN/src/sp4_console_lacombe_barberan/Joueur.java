@@ -11,5 +11,49 @@ package sp4_console_lacombe_barberan;
 public class Joueur {
     String Nom;
     String Couleur;
+    Jeton [] ListeJetons =new Jeton[21];
+    int nombreDesintegrateurs ; 
+    int nombreJetonsRestants;
     
-}
+    public Joueur(String nom){
+        Nom=nom; 
+        
+    }
+    public void affecterCouleur(String couleur){
+        Couleur = couleur; 
+        
+        
+    }
+    public boolean ajouterJeton(Jeton jeton){
+        
+    
+        for(int i=0;i<=20;i++){
+            if(ListeJetons[i]==null){
+                ListeJetons[i]=jeton;
+                return true;//
+                
+            }
+           
+            }
+        return false; 
+        }
+    public void obtenirDesintegrateur(){
+        nombreDesintegrateurs+=1;
+    }
+    public boolean utiliserDeseintegrateur(){
+        if (nombreDesintegrateurs>0){
+            nombreDesintegrateurs-=1;
+            return true;
+        }
+        
+        return false;
+    }
+    
+    
+        
+    }
+       
+
+    
+
+
