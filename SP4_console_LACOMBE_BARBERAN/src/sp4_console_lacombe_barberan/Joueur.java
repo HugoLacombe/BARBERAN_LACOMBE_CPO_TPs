@@ -11,5 +11,5 @@ package sp4_console_lacombe_barberan;
 public class Joueur {
     String Nom;
     String Couleur;
-    J
+    
 }
