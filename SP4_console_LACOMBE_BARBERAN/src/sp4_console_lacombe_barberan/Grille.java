@@ -87,10 +87,10 @@ public class Grille {
         // ligne 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 4; j++) {
-                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i][j + 1].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i][j + 2].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i][j + 3].lireCouleurDuJeton()) {
+                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i][j + 1].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i][j + 2].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i][j + 3].lireCouleurDuJeton()) {
                     System.out.println("ligne gagnante: " + i);
 
                     return true; //ligne gagnante
@@ -103,10 +103,10 @@ public class Grille {
         //colonne
         for (int j = 0; j < 7; j++) {
             for (int i = 0; i < 3; i++) {
-                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i + 1][j].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i + 2][j].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i + 3][j].lireCouleurDuJeton()) {
+                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 1][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 2][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 3][j].lireCouleurDuJeton()) {
                     System.out.println("colonne gagante: " + j);
                     return true;
                 }
@@ -116,10 +116,10 @@ public class Grille {
         //diagonnale montante
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton() && 
-                        couleurJ == CellulesJeu[i + 1][j + 1].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i + 2][j + 2].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i + 3][j + 3].lireCouleurDuJeton()) {
+                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 1][j + 1].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 2][j + 2].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i + 3][j + 3].lireCouleurDuJeton()) {
                     return true;
                 }
             }
@@ -128,10 +128,10 @@ public class Grille {
         //diagonale descandante 
         for (int i = 3; i < 6; i++) {
             for (int j = 0; j < 4; j++) {
-                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i - 1][j + 1].lireCouleurDuJeton() &&
-                        couleurJ == CellulesJeu[i - 2][j + 2].lireCouleurDuJeton() &
-                        couleurJ == CellulesJeu[i - 3][j + 3].lireCouleurDuJeton()) {
+                if (couleurJ == CellulesJeu[i][j].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i - 1][j + 1].lireCouleurDuJeton()
+                        && couleurJ == CellulesJeu[i - 2][j + 2].lireCouleurDuJeton()
+                        & couleurJ == CellulesJeu[i - 3][j + 3].lireCouleurDuJeton()) {
                     return true;
                 }
             }
@@ -140,21 +140,62 @@ public class Grille {
         return false;
     }
 
+    public boolean colonneRemplie(int j) {
+        if (CellulesJeu[5][j].jetonCourant != null) {
+            return true;
+        }
+        return false;
+    }
 
-public boolean colonneRemplie(int j){
-if (CellulesJeu[5][j].jetonCourant != null){
-return true;
-}
-return false; 
-}
-public void tasserGrille(int ){
+    public void tasserGrille(int ) {
+
+    }
+
+    public boolean placerTrouNoir(int i, int j) {
+        if (CellulesJeu[i][j].trouNoir == false) {
+            CellulesJeu[i][j].trouNoir = true;
+            return true;
+
+        }
+        return false;
+
+    }
+
+    public boolean placerTrouNoir(int i, int j) {
+        if (CellulesJeu[i][j].trouNoir == false) {
+            CellulesJeu[i][j].trouNoir = true;
+            return true;
+
+        }
+        return false;
+
+    }
+
+    public boolean placerDesintegrateur(int i, int j) {
+        if (CellulesJeu[i][j].desintegrateur == false) {
+            CellulesJeu[i][j].desintegrateur = true;
+            return true;
+
+        }
+        return false;
+
+    }
+
+    public boolean supprimerJeton(int i, int j) {
+        if (CellulesJeu[i][j].jetonCourant != null) {
+            CellulesJeu[i][j].jetonCourant = null;
+            return true;
+        }
+        return false;
+
+    }
+    public Jeton recupererJeton(int i, int j){
+        
+        Jeton jetonvise;
+       jetonvise= CellulesJeu[i][j].jetonCourant ;
+       CellulesJeu[i][j].jetonCourant = null;
+       return jetonvise; 
+       
+    }
 
 }
-
-public boolean placerTrouNoir(int i, int j){ 
-    
-}
-
-}
-
-            
