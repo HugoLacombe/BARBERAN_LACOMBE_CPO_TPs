@@ -83,6 +83,9 @@ public class Grille {
     }
 
     public boolean etreGagnantePourJoueur(Joueur joueur1){
-        String 
+        String couleurJ = joueur1.Couleur;
+        
+        
+        
     }
             }
