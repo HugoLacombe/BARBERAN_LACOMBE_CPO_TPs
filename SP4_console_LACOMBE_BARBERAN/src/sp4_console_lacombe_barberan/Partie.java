@@ -82,5 +82,8 @@ public class Partie {
 }
     public void  debuterPartie(){
         
+        
+       
+        
     }
 }

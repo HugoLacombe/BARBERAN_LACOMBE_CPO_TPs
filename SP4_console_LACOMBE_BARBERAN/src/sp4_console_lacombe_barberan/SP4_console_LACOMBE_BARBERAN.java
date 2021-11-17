@@ -36,7 +36,14 @@ public class SP4_console_LACOMBE_BARBERAN {
    G.ajouterJetonDansColonne(jeton, 0);
    G.afficherGrilleSurConsole();
   G.ajouterJetonDansColonne(jeton, 1);
+  System.out.println("  ekeekee  ")
+          
+          G.ajouterJetonDansColonne(jeton, 0);
+          G.ajouterJetonDansColonne(jeton, 0);
+          G.ajouterJetonDansColonne(jeton, 0);
+
           G.afficherGrilleSurConsole();
+          G.
  
  
         // TODO code application logic here
