@@ -14,9 +14,18 @@ public class SP4_console_LACOMBE_BARBERAN {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+            Jeton jeton  = new Jeton("Rouge"); 
+ System.out.print(jeton.lireCouleur()); 
+ Cellule c =new Cellule(); 
+  System.out.print(c.lireCouleurDuJeton()); 
+  
+ c.affecterJeton(jeton);
+ System.out.print(c.lireCouleurDuJeton());
+ Grille G = new Grille();
+ 
+ 
         // TODO code application logic here
     }
-    Jeton Jeton  = new Jeton("Rouge"); 
-  Jeton.lireCouleur(); 
+
     
 }

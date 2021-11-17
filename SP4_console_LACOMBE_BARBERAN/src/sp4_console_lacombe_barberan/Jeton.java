@@ -11,8 +11,8 @@ package sp4_console_lacombe_barberan;
 public class Jeton {
     String Couleur;
     
-    public Jeton(String couleur){
-        Couleur=couleur; 
+    public Jeton(String unecouleur){
+        Couleur=unecouleur; 
     
     }
     public String lireCouleur(){
