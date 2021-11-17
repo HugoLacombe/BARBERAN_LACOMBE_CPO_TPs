@@ -43,7 +43,7 @@ public class SP4_console_LACOMBE_BARBERAN {
           G.ajouterJetonDansColonne(jeton, 0);
 
           G.afficherGrilleSurConsole();
-          
+          Joueur joueur = new Joueur("Jul")
  
  
         // TODO code application logic here
