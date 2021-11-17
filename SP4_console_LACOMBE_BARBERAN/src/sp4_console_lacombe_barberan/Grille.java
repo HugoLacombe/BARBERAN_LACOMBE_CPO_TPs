@@ -147,7 +147,8 @@ public class Grille {
         return false;
     }
 
-    public void tasserGrille(int ) {
+    public void tasserGrille(int i, int j ) {
+        
         
 
     }

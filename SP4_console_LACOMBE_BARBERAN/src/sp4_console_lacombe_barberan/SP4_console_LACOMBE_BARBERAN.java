@@ -16,5 +16,7 @@ public class SP4_console_LACOMBE_BARBERAN {
     public static void main(String[] args) {
         // TODO code application logic here
     }
+    Jeton j = new Jeton("rouge"); 
+    j.l
     
 }
