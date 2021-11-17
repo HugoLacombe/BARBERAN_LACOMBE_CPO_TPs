@@ -148,37 +148,56 @@ public class Grille {
     }
     
     public void afficherGrilleSurConsole(){
+         
           for (int i = 0; i <6; i++) {
 
             for (int j = 0; j < 7; j++) {
-              System.out.println("______");
+             // System.out.println("_ _ _ _ _ _");
+              if( CellulesJeu[i][j].lireCouleurDuJeton()!="vide"){
               String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
               
-                  
+             
+                 
               
               if(Couleur=="rouge"){
-                  System.out.print("R");
+                  if(j==0){
+                    System.out.print("| R |");  
+                  }
+                  else{
+                  System.out.print(" R |");
+                  }
                   
                   
               }
               if(Couleur=="jaune"){
+                   if(j==0){
+                    System.out.print("| J |");  
+                  }
+                   else{
+                       System.out.print(" J |");
+                   }
               
               
-              System.out.print("J");
+              
         
             }
+              }
               else{
-                  System.out.print("v");
+                   if(j==0){
+                    System.out.print("| - |");  
+                  }
+                   else{
+                  System.out.print(" - |");
+                   } 
               }
         }
+            System.out.println(); 
+    }
+          
     }
         
 
-    public void tasserGrille(int i, int j ) {
-        
-        
-
-    }
+   
 
     public boolean placerTrouNoir(int i, int j) {
         if (CellulesJeu[i][j].trouNoir == false) {
