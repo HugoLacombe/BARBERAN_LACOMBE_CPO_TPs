@@ -63,8 +63,8 @@ public class Cellule {
         }
     }
 
-    public boolean placerDesintegrateur(){
-     if (desintegrateur == false) {
+    public boolean placerDesintegrateur() {
+        if (desintegrateur == false) {
             desintegrateur = true;
             System.out.println("Ajout du desintegrateur effectué");
             return true;
@@ -72,28 +72,43 @@ public class Cellule {
             System.out.println("desintegrateur deja present");
             return false;
         }
-       
-    } 
-public boolean recupererDesintegrateur (){
- if (desintegrateur == true) {
+
+    }
+
+    public boolean presenceTrouNoir() {
+        if (trouNoir == false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+public boolean presenceDesintegrateur() {
+        if (desintegrateur == false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public boolean recupererDesintegrateur() {
+        if (desintegrateur == true) {
             desintegrateur = false;
             System.out.println("Suppression du desintegrateur effectué");
             return true;
         } else {
             System.out.println("pas de desintegrateur present");
             return false;
-        }   
-}
-public boolean activerTrouNoir(){
-    if(trouNoir == true){
-        jetonCourant=null; // vide la cellule
-        trouNoir = false; // disparition du Trou Noir
-        System.out.println("Activation du Trou Noir");
-        return true;  
+        }
     }
-    else{
-        System.out.println("Pas de Trou Noir dans cette cellule");
-        return false;
+
+    public boolean activerTrouNoir() {
+        if (trouNoir == true) {
+            jetonCourant = null; // vide la cellule
+            trouNoir = false; // disparition du Trou Noir
+            System.out.println("Activation du Trou Noir");
+            return true;
+        } else {
+            System.out.println("Pas de Trou Noir dans cette cellule");
+            return false;
+        }
     }
-}
 }
