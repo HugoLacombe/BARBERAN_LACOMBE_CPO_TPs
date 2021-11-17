@@ -30,11 +30,11 @@ public class Partie {
         Random r = new Random();
         int n = r.nextInt(1);
         if (n == 0) {
-            ListeJoueurs[0].Couleur = "Jaune";
-            ListeJoueurs[1].Couleur = "Rouge";
+            ListeJoueurs[0].Couleur = "jaune";
+            ListeJoueurs[1].Couleur = "rouge";
         } else {
-            ListeJoueurs[0].Couleur = "Rouge";
-            ListeJoueurs[1].Couleur = "Jaune";
+            ListeJoueurs[0].Couleur = "rouge";
+            ListeJoueurs[1].Couleur = "jaune";
         }
 
     }
