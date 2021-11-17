@@ -148,6 +148,7 @@ public class Grille {
     }
 
     public void tasserGrille(int ) {
+        
 
     }
 
@@ -161,15 +162,7 @@ public class Grille {
 
     }
 
-    public boolean placerTrouNoir(int i, int j) {
-        if (CellulesJeu[i][j].trouNoir == false) {
-            CellulesJeu[i][j].trouNoir = true;
-            return true;
-
-        }
-        return false;
-
-    }
+    
 
     public boolean placerDesintegrateur(int i, int j) {
         if (CellulesJeu[i][j].desintegrateur == false) {
