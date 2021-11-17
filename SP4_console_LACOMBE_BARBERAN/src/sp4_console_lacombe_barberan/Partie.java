@@ -41,8 +41,7 @@ public class Partie {
 
     public void initialiserPartie() {
         
-        //Grille gillejeu =new Grille ;
-       // Grille[][] grillejeu = new  Grille[6][7];
+         grillejeu =new Grille() ;
         Random r = new Random();
 
 //creation des jetons joueur1
@@ -84,6 +83,11 @@ public class Partie {
     }
 }
     public void  debuterPartie(){
-        
+        Random r = new Random();
+        int a = r.nextInt(1);
+        joueurCourant=ListeJoueurs[a];
+        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])==true ||grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])==true || grillejeu.etreRemplie()==true ){
+            
+     }
     }
 }
