@@ -13,9 +13,9 @@ public class Grille {
     Cellule[][] CellulesJeu = new Cellule[6][7];
 
     public Grille() {
-        for (int i = 0; i <= 6; i++) {
+        for (int i = 0; i <6; i++) {
 
-            for (int j = 0; j <= 7; j++) {
+            for (int j = 0; j < 7; j++) {
 
                 CellulesJeu[i][j] = new Cellule();
             }
@@ -146,6 +146,18 @@ public class Grille {
         }
         return false;
     }
+    
+    public void afficherGrilleSurConsole(){
+          for (int i = 0; i <6; i++) {
+
+            for (int j = 0; j < 7; j++) {
+                Jeton j=CellulesJeu[i][j].jetonCourant
+
+                System.out.println(CellulesJeu[i][j]); 
+            }
+        }
+    }
+        
 
     public void tasserGrille(int i, int j ) {
         
