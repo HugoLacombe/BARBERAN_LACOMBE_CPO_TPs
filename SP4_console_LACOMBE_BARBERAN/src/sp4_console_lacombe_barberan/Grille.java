@@ -151,10 +151,25 @@ public class Grille {
           for (int i = 0; i <6; i++) {
 
             for (int j = 0; j < 7; j++) {
-                Jeton j=CellulesJeu[i][j].jetonCourant
-
-                System.out.println(CellulesJeu[i][j]); 
+              System.out.println("______");
+              String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+              
+                  
+              
+              if(Couleur=="rouge"){
+                  System.out.print("R");
+                  
+                  
+              }
+              if(Couleur=="jaune"){
+              
+              
+              System.out.print("J");
+        
             }
+              else{
+                  System.out.print("v");
+              }
         }
     }
         

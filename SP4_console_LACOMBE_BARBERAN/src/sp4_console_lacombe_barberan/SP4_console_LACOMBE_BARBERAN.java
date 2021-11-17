@@ -20,10 +20,11 @@ public class SP4_console_LACOMBE_BARBERAN {
   System.out.print(c.lireCouleurDuJeton()); 
   
  c.affecterJeton(jeton);
- System.out.print(c.lireCouleurDuJeton());
+ System.out.println(c.lireCouleurDuJeton());
  Grille G = new Grille();
+ G.afficherGrilleSurConsole();
  
- 
+ G.ajouterJetonDansColonne(jeton, 5); 
         // TODO code application logic here
     }
 
