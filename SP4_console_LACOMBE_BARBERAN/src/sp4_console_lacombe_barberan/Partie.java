@@ -64,12 +64,15 @@ public class Partie {
             int b = r.nextInt(6);
             grillejeu.placerTrouNoir(a, b);
 }
-        //placer les desintegrateurs 
-        for (int c=0;c<2;c++){
+        //placer les desintegrateurs
+        int cpt=0;
+        while (cpt<2){
+            
             int x = r.nextInt(5);    //tirer aleatoirement un entier  
             int y = r.nextInt(6);
             if (grillejeu.CellulesJeu[x][y].trouNoir==true){
                 grillejeu.placerDesintegrateur(x, y);
+                cpt+=1;
             }
             
         }
