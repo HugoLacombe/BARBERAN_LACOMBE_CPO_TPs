@@ -91,7 +91,7 @@ public class Grille {
                         && couleurJ == CellulesJeu[i][j + 1].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 2].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 3].lireCouleurDuJeton()) {
-                    System.out.println("ligne gagnante: " + i);
+                    System.out.println("ligne gagnante: " + i); //problème ici 
 
                     return true; //ligne gagnante
 

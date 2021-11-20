@@ -38,12 +38,15 @@ public class SP4_console_LACOMBE_BARBERAN {
   G.ajouterJetonDansColonne(jeton, 1);
   System.out.println("  ekeekee  ");
           
-          G.ajouterJetonDansColonne(jeton, 0);
-          G.ajouterJetonDansColonne(jeton, 0);
-          G.ajouterJetonDansColonne(jeton, 0);
+          G.ajouterJetonDansColonne(jeton, 3);
+          G.ajouterJetonDansColonne(jeton, 2);
+          G.ajouterJetonDansColonne(jeton, 1);
 
           G.afficherGrilleSurConsole();
-          Joueur joueur = new Joueur("Jul")
+          Joueur joueur = new Joueur("Jul");
+          joueur.Couleur="rouge";
+          G.etreGagnantePourJoueur(joueur); 
+                  
  
  
         // TODO code application logic here
