@@ -17,6 +17,7 @@ public class Joueur {
     
     public Joueur(String nom){
         Nom=nom; 
+        nombreJetonsRestants=21; 
         
     }
     public void affecterCouleur(String couleur){
@@ -30,6 +31,8 @@ public class Joueur {
         for(int i=0;i<=20;i++){
             if(ListeJetons[i]==null){
                 ListeJetons[i]=jeton;
+                
+                
                 return true;//
                 
             }

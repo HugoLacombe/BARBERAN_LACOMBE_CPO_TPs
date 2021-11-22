@@ -14,6 +14,19 @@ public class SP4_console_LACOMBE_BARBERAN {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+          Joueur joueur1 = new Joueur("h");
+           Joueur joueur2 = new Joueur("b");
+          
+          Partie part1 = new Partie(joueur1,joueur2); 
+          part1.attribuerCouleursAuxJoueurs();
+          part1.initialiserPartie();
+          part1.debuterPartie();
+          
+          
+        
+    }
+    /*/
             Jeton jeton  = new Jeton("rouge"); 
  System.out.print(jeton.lireCouleur()); 
  Cellule c =new Cellule(); 
@@ -46,6 +59,8 @@ public class SP4_console_LACOMBE_BARBERAN {
           Joueur joueur = new Joueur("Jul");
           joueur.Couleur="rouge";
           G.etreGagnantePourJoueur(joueur); 
+          /*/
+          
                   
  
  

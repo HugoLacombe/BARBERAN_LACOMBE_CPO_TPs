@@ -83,53 +83,54 @@ public class Partie {
     }
 }
     public void  debuterPartie(){
+        
         Random r = new Random();
         int a = r.nextInt(1);
         joueurCourant=ListeJoueurs[a];
-        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true ||grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true || grillejeu.etreRemplie()!=true ){
+        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true && grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true && grillejeu.etreRemplie()!=true ){
             grillejeu.afficherGrilleSurConsole();
             int tour=0;
-            System.out.println("Il va ou ton jeton ? ");
+             
+            System.out.println("Placez votre jeton ? ");
             Scanner sc = new Scanner(System.in);
             
                int colonne_jc = sc.nextInt();
-               
-               for(int i =0; i<21;i++){
-                   
-               
-               if(joueurCourant.ListeJetons[i]!=null){
-               
-               break; 
-              
-               }
+        
                boolean coup=false; 
+               
                do{
                    
                
                if( colonne_jc<7 && colonne_jc >=0 && grillejeu.colonneRemplie(colonne_jc)!=true){
-                   grillejeu.ajouterJetonDansColonne( joueurCourant.ListeJetons[i], colonne_jc);
+                   grillejeu.ajouterJetonDansColonne( joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1], colonne_jc);
                    coup=true; 
                    
                }
                if(coup==false){
-                   System.out.println("Il va ou ton jeton ? pcq la tu t'es trompé c pas possible");
+                   System.out.println("Place ton jeton, tu t'es trompé");
                colonne_jc = sc.nextInt();
                }
                
                
                }while(coup==false); 
                
-               joueurCourant.ListeJetons[i]=null; 
+               joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1]=null;
                
-               
-               
-               
+               if (joueurCourant==ListeJoueurs[0]){
+                joueurCourant=ListeJoueurs[1];
+                System.out.println("A ton tour " + ListeJoueurs[1].Nom );
+                
+               }
+               else {
+                   joueurCourant=ListeJoueurs[0];
+                   System.out.println("A ton tour " + ListeJoueurs[0].Nom );
+               }
                
                
                
         }
-            
+         System.out.println("PARTIE TERMINE") ;  
             
      }
     }
-}
+

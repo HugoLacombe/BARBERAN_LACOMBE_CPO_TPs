@@ -27,6 +27,7 @@ public class Grille {
             if (CellulesJeu[i][colonne].jetonCourant == null) {
 
                 CellulesJeu[i][colonne].jetonCourant = jeton;
+                
                 return true;
 
             }
