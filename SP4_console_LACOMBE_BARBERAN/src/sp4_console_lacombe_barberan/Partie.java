@@ -81,6 +81,7 @@ public class Partie {
             grillejeu.placerDesintegrateur(x, y);
 
         }
+        grillejeu.placerDesintegrateur(5, 0);
     }
 
     public void debuterPartie() {
@@ -107,16 +108,16 @@ public class Partie {
                     do {
 
                         if (colonne_jc < 7 && colonne_jc >= 0 && grillejeu.colonneRemplie(colonne_jc) != true) {
-                            
+
                             System.out.println("boucle 2");
-                            
+
                             grillejeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1], colonne_jc);
+                            if (grillejeu.ligneDesin(colonne_jc) == true) {
+                                joueurCourant.nombreDesintegrateurs += 1;
+                                System.out.println("désintégrateur la");
+                            }
+
                             coup = true;
-                            
-                            
-                          
-                            
-                            
 
                         }
                         if (coup == false) {
@@ -130,28 +131,21 @@ public class Partie {
                     joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1] = null;
                     joueurCourant.nombreJetonsRestants -= 1;
                     System.out.println("jeton placé");
-                    
-                    break;
-                    
-                case 2 : //Récupérer les jetons 
-                    
-                    
-                    
 
-                 
-                    
+                    break;
+
+                case 2: //Récupérer les jetons 
 
             }
-               if (joueurCourant == ListeJoueurs[0]) {
-                        joueurCourant = ListeJoueurs[1];
-                        System.out.println("A ton tour " + ListeJoueurs[1].Nom);
+            if (joueurCourant == ListeJoueurs[0]) {
+                joueurCourant = ListeJoueurs[1];
+                System.out.println("A ton tour " + ListeJoueurs[1].Nom);
 
-                    } else {
-                        joueurCourant = ListeJoueurs[0];
-                        System.out.println("A ton tour " + ListeJoueurs[0].Nom);
-                    }
-             
-         
+            } else {
+                joueurCourant = ListeJoueurs[0];
+                System.out.println("A ton tour " + ListeJoueurs[0].Nom);
+            }
+
         }
         System.out.println("PARTIE TERMINE");
 

@@ -46,6 +46,7 @@ public class Cellule {
     public Jeton recupererJeton() {
         return jetonCourant;
     }
+    
 
     public boolean supprimerJeton() {
         if (jetonCourant == null) {

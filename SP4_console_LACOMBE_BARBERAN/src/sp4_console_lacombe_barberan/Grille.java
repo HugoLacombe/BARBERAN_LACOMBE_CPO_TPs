@@ -13,7 +13,7 @@ public class Grille {
     Cellule[][] CellulesJeu = new Cellule[6][7];
 
     public Grille() {
-        for (int i = 0; i <6; i++) {
+        for (int i = 0; i < 6; i++) {
 
             for (int j = 0; j < 7; j++) {
 
@@ -35,11 +35,11 @@ public class Grille {
         }
         return false;// colonne pleine
             /*/
-           if ( CellulesJeu[i][colonne].affecterJeton(jeton)==true){
-           return true; 
-           }
+            if (CellulesJeu[i][colonne].affecterJeton(jeton) == true) {
+                return true;
+            }
         }
-        return false; 
+        return false;
     }
 
     public boolean etreRemplie() {
@@ -153,56 +153,45 @@ public class Grille {
         }
         return false;
     }
-    
-    public void afficherGrilleSurConsole(){
-         
-          for (int i = 0; i <6; i++) {
+
+    public void afficherGrilleSurConsole() {
+
+        for (int i = 0; i < 6; i++) {
 
             for (int j = 0; j < 7; j++) {
-             // System.out.println("_ _ _ _ _ _");
-              if( CellulesJeu[i][j].lireCouleurDuJeton()!="vide"){
-              String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
-              
-             
-                 
-              
-              if(Couleur=="rouge"){
-                  if(j==0){
-                    System.out.print("| R |");  
-                  }
-                  else{
-                  System.out.print(" R |");
-                  }
-                  
-                  
-              }
-              if(Couleur=="jaune"){
-                   if(j==0){
-                    System.out.print("| J |");  
-                  }
-                   else{
-                       System.out.print(" J |");
-                   }
-              
-              
-              
-        
+                // System.out.println("_ _ _ _ _ _");
+                if (CellulesJeu[i][j].lireCouleurDuJeton() != "vide") {
+                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+
+                    if (Couleur == "rouge") {
+                        if (j == 0) {
+                            System.out.print("| R |");
+                        } else {
+                            System.out.print(" R |");
+                        }
+
+                    }
+                    if (Couleur == "jaune") {
+                        if (j == 0) {
+                            System.out.print("| J |");
+                        } else {
+                            System.out.print(" J |");
+                        }
+
+                    }
+                } else {
+                    if (j == 0) {
+                        System.out.print("| - |");
+                    } else {
+                        System.out.print(" - |");
+                    }
+                }
             }
-              }
-              else{
-                   if(j==0){
-                    System.out.print("| - |");  
-                  }
-                   else{
-                  System.out.print(" - |");
-                   } 
-              }
+            System.out.println();
         }
-            System.out.println(); 
-    }
 
     }
-                
+
     public boolean placerTrouNoir(int i, int j) {
 
         if (CellulesJeu[i][j].trouNoir == false) {
@@ -212,8 +201,6 @@ public class Grille {
         }
         return false;
     }
-
-    
 
     public boolean placerDesintegrateur(int i, int j) {
         if (CellulesJeu[i][j].desintegrateur == false) {
@@ -231,35 +218,49 @@ public class Grille {
             return true;
         }
         return false;
+    }
+
+    public boolean ligneDesin(int colonne) {
+        int ligne = -1;
+        for (int i = 5; i >= 0; i--) {
+
+            if (CellulesJeu[i][colonne].jetonCourant == null) {
+
+                ligne = i; //ligne ou se trouve le desintegrateur   
+
+            }
+        }
+
+        if (CellulesJeu[ligne][colonne].desintegrateur == true) {
+            return true;//verifie si il y a un desintegrateur 
+        }
+
+        return false;
+    }
+
+    public Jeton recupererJeton(int i, int j) {
+
+        Jeton jetonvise;
+        jetonvise = CellulesJeu[i][j].jetonCourant;
+        CellulesJeu[i][j].jetonCourant = null;
+        return jetonvise;
 
     }
-    public Jeton recupererJeton(int i, int j){
-        
-        Jeton jetonvise;
-       jetonvise= CellulesJeu[i][j].jetonCourant ;
-       CellulesJeu[i][j].jetonCourant = null;
-       return jetonvise; 
-       
-    }
+
     public void tasserGrille(int j) {
 
-      for (int i=0;i<6;i++){
+        for (int i = 0; i < 6; i++) {
 
-       if (CellulesJeu[i][j].jetonCourant==null){
+            if (CellulesJeu[i][j].jetonCourant == null) {
 
-           CellulesJeu[i][j].jetonCourant=CellulesJeu[i+1][j].jetonCourant;
+                CellulesJeu[i][j].jetonCourant = CellulesJeu[i + 1][j].jetonCourant;
 
-          CellulesJeu[i+1][j].jetonCourant=null;
+                CellulesJeu[i + 1][j].jetonCourant = null;
 
-       }
+            }
 
-          
-
-      }
+        }
 
     }
-
-
-    
 
 }
