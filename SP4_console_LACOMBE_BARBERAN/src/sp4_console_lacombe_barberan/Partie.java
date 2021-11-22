@@ -86,7 +86,49 @@ public class Partie {
         Random r = new Random();
         int a = r.nextInt(1);
         joueurCourant=ListeJoueurs[a];
-        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])==true ||grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])==true || grillejeu.etreRemplie()==true ){
+        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true ||grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true || grillejeu.etreRemplie()!=true ){
+            grillejeu.afficherGrilleSurConsole();
+            int tour=0;
+            System.out.println("Il va ou ton jeton ? ");
+            Scanner sc = new Scanner(System.in);
+            
+               int colonne_jc = sc.nextInt();
+               
+               for(int i =0; i<21;i++){
+                   
+               
+               if(joueurCourant.ListeJetons[i]!=null){
+               
+               break; 
+              
+               }
+               boolean coup=false; 
+               do{
+                   
+               
+               if( colonne_jc<7 && colonne_jc >=0 && grillejeu.colonneRemplie(colonne_jc)!=true){
+                   grillejeu.ajouterJetonDansColonne( joueurCourant.ListeJetons[i], colonne_jc);
+                   coup=true; 
+                   
+               }
+               if(coup==false){
+                   System.out.println("Il va ou ton jeton ? pcq la tu t'es trompé c pas possible");
+               colonne_jc = sc.nextInt();
+               }
+               
+               
+               }while(coup==false); 
+               
+               joueurCourant.ListeJetons[i]=null; 
+               
+               
+               
+               
+               
+               
+               
+        }
+            
             
      }
     }
