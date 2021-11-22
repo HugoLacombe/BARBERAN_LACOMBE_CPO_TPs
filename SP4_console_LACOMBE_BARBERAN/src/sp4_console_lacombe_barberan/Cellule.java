@@ -22,9 +22,13 @@ public class Cellule {
 
     public boolean affecterJeton(Jeton Jeton) { // affecte le jeton en paramètre ou retourne faux si cellule pleine 
         if (jetonCourant == null) {
+
             jetonCourant = Jeton;
-            
+
+            activerTrouNoir();
+
             return true;
+
         } else {
             System.out.print("Cellule occupé ");
             return false;
@@ -83,13 +87,15 @@ public class Cellule {
             return true;
         }
     }
-public boolean presenceDesintegrateur() {
+
+    public boolean presenceDesintegrateur() {
         if (desintegrateur == false) {
             return false;
         } else {
             return true;
         }
     }
+
     public boolean recupererDesintegrateur() {
         if (desintegrateur == true) {
             desintegrateur = false;
