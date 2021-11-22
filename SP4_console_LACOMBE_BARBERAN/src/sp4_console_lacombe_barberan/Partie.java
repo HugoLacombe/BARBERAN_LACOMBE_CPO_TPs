@@ -102,11 +102,14 @@ public class Partie {
                    
                
                if( colonne_jc<7 && colonne_jc >=0 && grillejeu.colonneRemplie(colonne_jc)!=true){
+                   System.out.println("boucle 2");
                    grillejeu.ajouterJetonDansColonne( joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1], colonne_jc);
+                   
                    coup=true; 
                    
                }
                if(coup==false){
+                   System.out.println("boucle 2");
                    System.out.println("Place ton jeton, tu t'es trompé");
                colonne_jc = sc.nextInt();
                }
@@ -115,6 +118,8 @@ public class Partie {
                }while(coup==false); 
                
                joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1]=null;
+               joueurCourant.nombreJetonsRestants-=1;  
+               System.out.println("jeton placé");
                
                if (joueurCourant==ListeJoueurs[0]){
                 joueurCourant=ListeJoueurs[1];

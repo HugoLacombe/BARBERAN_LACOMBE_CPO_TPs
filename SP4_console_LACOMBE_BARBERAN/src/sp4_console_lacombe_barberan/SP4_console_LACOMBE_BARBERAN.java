@@ -14,6 +14,7 @@ public class SP4_console_LACOMBE_BARBERAN {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
 
           Joueur joueur1 = new Joueur("h");
            Joueur joueur2 = new Joueur("b");
@@ -22,8 +23,8 @@ public class SP4_console_LACOMBE_BARBERAN {
           part1.attribuerCouleursAuxJoueurs();
           part1.initialiserPartie();
           part1.debuterPartie();
-          
-          
+      
+ 
         
     }
     /*/

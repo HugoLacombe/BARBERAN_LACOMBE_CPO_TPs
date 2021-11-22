@@ -27,7 +27,6 @@ public class Grille {
             if (CellulesJeu[i][colonne].jetonCourant == null) {
 
                 CellulesJeu[i][colonne].jetonCourant = jeton;
-                
                 return true;
 
             }
@@ -142,7 +141,7 @@ public class Grille {
     }
 
     public boolean colonneRemplie(int j) {
-        if (CellulesJeu[5][j].jetonCourant != null) {
+        if (CellulesJeu[0][j].jetonCourant != null) {
             return true;
         }
         return false;
