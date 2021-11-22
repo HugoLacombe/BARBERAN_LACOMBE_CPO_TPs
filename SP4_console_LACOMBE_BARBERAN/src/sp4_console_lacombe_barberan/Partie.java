@@ -52,7 +52,7 @@ public class Partie {
         }
         //creation des jetons joueur1
         for (int j = 0; j <= 20; j++) {
-            Jeton jeton = new Jeton(ListeJoueurs[0].Couleur);
+            Jeton jeton = new Jeton(ListeJoueurs[1].Couleur);
             ListeJoueurs[1].ajouterJeton(jeton);
 
         }
@@ -84,7 +84,7 @@ public class Partie {
 }
     public void  debuterPartie(){
         Random r = new Random();
-        int a = r.nextInt(1);
+        int a = r.nextInt(2);
         joueurCourant=ListeJoueurs[a];
         while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true ||grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true || grillejeu.etreRemplie()!=true ){
             grillejeu.afficherGrilleSurConsole();
