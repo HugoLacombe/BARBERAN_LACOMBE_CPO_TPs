@@ -40,8 +40,8 @@ public class Partie {
     }
 
     public void initialiserPartie() {
-        
-         grillejeu =new Grille() ;
+
+        grillejeu = new Grille();
         Random r = new Random();
 
 //creation des jetons joueur1
@@ -62,80 +62,98 @@ public class Partie {
             int a = r.nextInt(5);    //tirer aleatoirement un entier  
             int b = r.nextInt(6);
             grillejeu.placerTrouNoir(a, b);
-}
+        }
         //placer les desintegrateurs
-        int cpt=0;
-        while (cpt<2){
-            
+        int cpt = 0;
+        while (cpt < 2) {
+
             int x = r.nextInt(5);    //tirer aleatoirement un entier  
             int y = r.nextInt(6);
-            if (grillejeu.CellulesJeu[x][y].trouNoir==true){
+            if (grillejeu.CellulesJeu[x][y].trouNoir == true) {
                 grillejeu.placerDesintegrateur(x, y);
-                cpt+=1;
+                cpt += 1;
             }
-            
+
         }
-        for (int z=0;z<3;z++){
+        for (int z = 0; z < 3; z++) {
             int x = r.nextInt(5);    //tirer aleatoirement un entier  
             int y = r.nextInt(6);
             grillejeu.placerDesintegrateur(x, y);
-            
-    }
-}
-    public void  debuterPartie(){
-        
-        Random r = new Random();
-        int a = r.nextInt(2);
-        joueurCourant=ListeJoueurs[a];
-        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true && grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true && grillejeu.etreRemplie()!=true ){
-            grillejeu.afficherGrilleSurConsole();
-            int tour=0;
-             
-            System.out.println("Placez votre jeton ? ");
-            Scanner sc = new Scanner(System.in);
-            
-               int colonne_jc = sc.nextInt();
-        
-               boolean coup=false; 
-               
-               do{
-                   
-               
-               if( colonne_jc<7 && colonne_jc >=0 && grillejeu.colonneRemplie(colonne_jc)!=true){
-                   System.out.println("boucle 2");
-                   grillejeu.ajouterJetonDansColonne( joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1], colonne_jc);
-                   
-                   coup=true; 
-                   
-               }
-               if(coup==false){
-                   System.out.println("boucle 2");
-                   System.out.println("Place ton jeton, tu t'es trompé");
-               colonne_jc = sc.nextInt();
-               }
-               
-               
-               }while(coup==false); 
-               
-               joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)-1]=null;
-               joueurCourant.nombreJetonsRestants-=1;  
-               System.out.println("jeton placé");
-               
-               if (joueurCourant==ListeJoueurs[0]){
-                joueurCourant=ListeJoueurs[1];
-                System.out.println("A ton tour " + ListeJoueurs[1].Nom );
-                
-               }
-               else {
-                   joueurCourant=ListeJoueurs[0];
-                   System.out.println("A ton tour " + ListeJoueurs[0].Nom );
-               }
-               
-               
-               
+
         }
-         System.out.println("PARTIE TERMINE") ;  
-            
-     }
     }
 
+    public void debuterPartie() {
+
+        Random r = new Random();
+        int a = r.nextInt(2);
+        joueurCourant = ListeJoueurs[a];
+        while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true && grillejeu.etreRemplie() != true) {
+            grillejeu.afficherGrilleSurConsole();
+            System.out.println("Choissis ton coup :");
+            System.out.println("1.Placer un jeton");
+            System.out.println("2.Récupérer un jeton de sa couleur");
+            System.out.println("3.Désintégrer un jeton de la couleur adverse");
+            Scanner sc = new Scanner(System.in);
+            int nombre = sc.nextInt();
+            switch (nombre) {
+                case 1:
+                    System.out.println("Placez votre jeton ? ");
+
+                    int colonne_jc = sc.nextInt();
+
+                    boolean coup = false;
+
+                    do {
+
+                        if (colonne_jc < 7 && colonne_jc >= 0 && grillejeu.colonneRemplie(colonne_jc) != true) {
+                            
+                            System.out.println("boucle 2");
+                            
+                            grillejeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1], colonne_jc);
+                            coup = true;
+                            
+                            
+                          
+                            
+                            
+
+                        }
+                        if (coup == false) {
+                            System.out.println("boucle 2");
+                            System.out.println("Place ton jeton, tu t'es trompé");
+                            colonne_jc = sc.nextInt();
+                        }
+
+                    } while (coup == false);
+
+                    joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1] = null;
+                    joueurCourant.nombreJetonsRestants -= 1;
+                    System.out.println("jeton placé");
+                    
+                    break;
+                    
+                case 2 : //Récupérer les jetons 
+                    
+                    
+                    
+
+                 
+                    
+
+            }
+               if (joueurCourant == ListeJoueurs[0]) {
+                        joueurCourant = ListeJoueurs[1];
+                        System.out.println("A ton tour " + ListeJoueurs[1].Nom);
+
+                    } else {
+                        joueurCourant = ListeJoueurs[0];
+                        System.out.println("A ton tour " + ListeJoueurs[0].Nom);
+                    }
+             
+         
+        }
+        System.out.println("PARTIE TERMINE");
+
+    }
+}

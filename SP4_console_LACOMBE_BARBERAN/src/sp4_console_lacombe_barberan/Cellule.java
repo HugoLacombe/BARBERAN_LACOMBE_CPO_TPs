@@ -22,11 +22,12 @@ public class Cellule {
 
     public boolean affecterJeton(Jeton Jeton) { // affecte le jeton en paramètre ou retourne faux si cellule pleine 
         if (jetonCourant == null) {
+            jetonCourant = Jeton;
+            
+            return true;
+        } else {
             System.out.print("Cellule occupé ");
             return false;
-        } else {
-            jetonCourant = Jeton;
-            return true;
         }
     }
 

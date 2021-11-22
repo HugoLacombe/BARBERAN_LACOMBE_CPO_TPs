@@ -24,6 +24,7 @@ public class Grille {
 
     public boolean ajouterJetonDansColonne(Jeton jeton, int colonne) {
         for (int i = 5; i >= 0; i--) {
+            /*/
             if (CellulesJeu[i][colonne].jetonCourant == null) {
 
                 CellulesJeu[i][colonne].jetonCourant = jeton;
@@ -33,6 +34,12 @@ public class Grille {
 
         }
         return false;// colonne pleine
+            /*/
+           if ( CellulesJeu[i][colonne].affecterJeton(jeton)==true){
+           return true; 
+           }
+        }
+        return false; 
     }
 
     public boolean etreRemplie() {
