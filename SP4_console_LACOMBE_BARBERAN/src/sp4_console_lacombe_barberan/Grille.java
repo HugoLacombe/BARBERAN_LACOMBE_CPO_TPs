@@ -249,13 +249,13 @@ public class Grille {
 
     public void tasserGrille(int j) {
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
 
-            if (CellulesJeu[i][j].jetonCourant == null) {
+            if (CellulesJeu[i][j].jetonCourant == null && ) {
 
-                CellulesJeu[i][j].jetonCourant = CellulesJeu[i + 1][j].jetonCourant;
+                CellulesJeu[i][j].jetonCourant = CellulesJeu[i +1][j].jetonCourant;
 
-                CellulesJeu[i + 1][j].jetonCourant = null;
+                CellulesJeu[i +1][j].jetonCourant = null;
 
             }
 

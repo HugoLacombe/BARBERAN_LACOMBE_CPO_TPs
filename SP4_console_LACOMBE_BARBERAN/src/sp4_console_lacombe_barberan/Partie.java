@@ -156,10 +156,10 @@ public class Partie {
                     grillejeu.tasserGrille(colonne_recup);
                     if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))) {
                         if (joueurCourant == ListeJoueurs[0]) {
-                            System.out.println(ListeJoueurs[1] + "a gagné! par faute de " + joueurCourant);
+                            System.out.println(ListeJoueurs[1] + "a gagné! par faute de " + joueurCourant.Nom);
 
                         } else {
-                            System.out.println(ListeJoueurs[0] + "A gagné! par faute de " + joueurCourant);
+                            System.out.println(ListeJoueurs[0] + "A gagné! par faute de " + joueurCourant.Nom);
 
                         }
 
