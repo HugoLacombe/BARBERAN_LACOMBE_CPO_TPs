@@ -154,7 +154,7 @@ public class Partie {
                     joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)] = grillejeu.recupererJeton(ligne_recup, colonne_recup);
                     joueurCourant.nombreJetonsRestants += 1;
                     grillejeu.tasserGrille(colonne_recup);
-                    if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))) {
+                    if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) ==true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))==true) {
                         if (joueurCourant == ListeJoueurs[0]) {
                             System.out.println(ListeJoueurs[1] + "a gagné! par faute de " + joueurCourant.Nom);
 
