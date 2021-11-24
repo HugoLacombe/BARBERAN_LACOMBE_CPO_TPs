@@ -59,9 +59,9 @@ public class Partie {
         //placer les trous noir 
         for (int k = 0; k < 5; k++) {
 
-            int a = r.nextInt(5);    //tirer aleatoirement un entier  
-            int b = r.nextInt(6);
-            grillejeu.placerTrouNoir(a, b);
+            //int a = r.nextInt(5);    //tirer aleatoirement un entier  
+            //int b = r.nextInt(6);
+            grillejeu.placerTrouNoir(0, k);
         }
         //placer les desintegrateurs
         int cpt = 0;

@@ -189,8 +189,9 @@ public class Grille {
                         System.out.print(" - |");
                     }
                 }
+                
                 if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].desintegrateur==true)&& (CellulesJeu[i][j].trouNoir!=true)) {
-                        Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                        
                     
                     if (j == 0) {
                         System.out.print("| D |");
@@ -198,8 +199,9 @@ public class Grille {
                         System.out.print(" D |");
                     }
                 }
-                if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].trouNoir!=true)) {
-                        Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+
+                if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].trouNoir==true)) {
+                        
                     
                     if (j == 0) {
                         System.out.print("| N |");
