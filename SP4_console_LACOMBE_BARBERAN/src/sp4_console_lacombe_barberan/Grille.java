@@ -98,7 +98,7 @@ public class Grille {
                         && couleurJ == CellulesJeu[i][j + 1].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 2].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 3].lireCouleurDuJeton()) {
-                    System.out.println("ligne gagnante: " + i); //problème ici 
+                    System.out.println("ligne gagnante: " + i);  
 
                     return true; //ligne gagnante
 
@@ -160,6 +160,7 @@ public class Grille {
 
             for (int j = 0; j < 7; j++) {
                 // System.out.println("_ _ _ _ _ _");
+                
                 if (CellulesJeu[i][j].lireCouleurDuJeton() != "vide") {
                     String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
 
@@ -179,11 +180,29 @@ public class Grille {
                         }
 
                     }
-                } else {
+                } if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide")&&(CellulesJeu[i][j].desintegrateur!=true)&&(CellulesJeu[i][j].trouNoir!=true)   ){
                     if (j == 0) {
                         System.out.print("| - |");
                     } else {
                         System.out.print(" - |");
+                    }
+                }
+                if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].desintegrateur==true)&& (CellulesJeu[i][j].trouNoir!=true)) {
+                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                    
+                    if (j == 0) {
+                        System.out.print("| D |");
+                    } else {
+                        System.out.print(" D |");
+                    }
+                }
+                if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].trouNoir!=true)) {
+                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                    
+                    if (j == 0) {
+                        System.out.print("| N |");
+                    } else {
+                        System.out.print(" N |");
                     }
                 }
             }
