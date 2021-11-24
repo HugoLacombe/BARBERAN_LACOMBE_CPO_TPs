@@ -244,17 +244,23 @@ public class Grille {
     }
 
     public boolean ligneDesin(int colonne) {
-        int ligne = 0;
-        for (int i = 5; i >= 0; i--) {
+        int ligne =0;
+        
+        for (int i = 0; i <=5; i++) {
 
             if (CellulesJeu[i][colonne].jetonCourant == null) {
 
-                ligne = i; //ligne ou se trouve le desintegrateur   
+               ligne = i+1; //ligne ou se trouve le desintegrateur
+               
 
             }
         }
+        System.out.println(ligne);
+        
 
         if (CellulesJeu[ligne][colonne].desintegrateur == true) {
+            System.out.println("LA FCT RENVOIE TRUE");
+            CellulesJeu[ligne][colonne].desintegrateur =false; 
             return true;//verifie si il y a un desintegrateur 
         }
 
@@ -272,7 +278,7 @@ public class Grille {
 
     public void tasserGrille(int j) {
 
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 6; i++) {
 
             if (CellulesJeu[i][j].jetonCourant == null ) {
 

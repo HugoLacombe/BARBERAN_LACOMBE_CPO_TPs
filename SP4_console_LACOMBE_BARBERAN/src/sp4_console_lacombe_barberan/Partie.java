@@ -57,33 +57,51 @@ public class Partie {
 
         }
         //placer les trous noir 
-        for (int k = 0; k < 5; k++) {
-
-            //int a = r.nextInt(5);    //tirer aleatoirement un entier  
-            //int b = r.nextInt(6);
-            grillejeu.placerTrouNoir(0, k);
+        int cpt1= 0;
+while(cpt1<5){
+            int a = r.nextInt(5);    //tirer aleatoirement un entier  
+            int b = r.nextInt(6);
+            if(grillejeu.CellulesJeu[a][b].trouNoir == false){
+              grillejeu.placerTrouNoir(a, b);  
+              cpt1+=1;
+              
+            }
+            
         }
+        
         //placer les desintegrateurs
         int cpt = 0;
         while (cpt < 2) {
 
             int x = r.nextInt(5);    //tirer aleatoirement un entier  
             int y = r.nextInt(6);
-            if (grillejeu.CellulesJeu[x][y].trouNoir == true) {
+            if ((grillejeu.CellulesJeu[x][y].trouNoir == true)&&(grillejeu.CellulesJeu[x][y].presenceDesintegrateur()==false)) {
                 grillejeu.placerDesintegrateur(x, y);
                 cpt += 1;
             }
 
         }
-        for (int z = 0; z < 3; z++) {
+        int cpt2=0;
+        /*/
+        while(cpt2<3){
+        
             int x = r.nextInt(5);    //tirer aleatoirement un entier  
             int y = r.nextInt(6);
-            grillejeu.placerDesintegrateur(x, y);
-
+            if ((grillejeu.CellulesJeu[x][y].trouNoir == false)&&(grillejeu.CellulesJeu[x][y].presenceDesintegrateur()==false)) {
+                grillejeu.placerDesintegrateur(x, y);
+                cpt2 += 1;
+            }
         }
-        grillejeu.placerDesintegrateur(5, 0);
-    }
+/*/
+        grillejeu.placerDesintegrateur(5, 1);
+        grillejeu.placerDesintegrateur(5, 2);
+        grillejeu.placerDesintegrateur(5, 3);
+            
 
+        
+      
+    
+    }
     public void debuterPartie() {
 
         Random r = new Random();
@@ -111,13 +129,16 @@ public class Partie {
                     do {
 
                         if (colonne_jc < 7 && colonne_jc >= 0 && grillejeu.colonneRemplie(colonne_jc) != true) {
+                            System.out.println("ICIIIIIIIIIIII");
 
                             
 
                             grillejeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1], colonne_jc);
                             if (grillejeu.ligneDesin(colonne_jc) == true) {
                                 joueurCourant.nombreDesintegrateurs += 1;
-                                System.out.println("désintégrateur la");
+                                
+                                System.out.println("Vous avez gagné un désintégrateur "+joueurCourant.nombreDesintegrateurs); 
+                                
                             }
 
                             coup = true;
@@ -169,7 +190,7 @@ public class Partie {
                     }
                     break;
 
-                case 3:
+                case 3://utilisation désint
                     if (joueurCourant.nombreDesintegrateurs >= 1) {
                         System.out.println("Rentrez les coordonnées du jeton adverse à supprimer");
                         System.out.println("Rentrez la ligne entre 0 et 5");
@@ -189,6 +210,7 @@ public class Partie {
                         }
                         grillejeu.supprimerJeton(ligne_supr, colonne_supr);
                         grillejeu.tasserGrille(colonne_supr);
+                        System.out.println("Désintégration avec succés"); 
                         joueurCourant.nombreDesintegrateurs-=1;
                         if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))==true) {
                             if (joueurCourant == ListeJoueurs[0]) {
