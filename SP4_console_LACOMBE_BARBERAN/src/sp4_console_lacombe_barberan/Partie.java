@@ -90,6 +90,7 @@ public class Partie {
         int a = r.nextInt(2);
         joueurCourant = ListeJoueurs[a];
         while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true && grillejeu.etreRemplie() != true) {
+            
             grillejeu.afficherGrilleSurConsole();
             System.out.println("Choissis ton coup :");
             System.out.println("1.Placer un jeton");
