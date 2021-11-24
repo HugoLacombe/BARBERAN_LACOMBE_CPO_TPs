@@ -155,14 +155,16 @@ public class Grille {
     }
 
     public void afficherGrilleSurConsole() {
+        
 
         for (int i = 0; i < 6; i++) {
 
             for (int j = 0; j < 7; j++) {
                 // System.out.println("_ _ _ _ _ _");
+                String Couleur; 
                 
                 if (CellulesJeu[i][j].lireCouleurDuJeton() != "vide") {
-                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                    Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
 
                     if (Couleur == "rouge") {
                         if (j == 0) {
@@ -188,7 +190,7 @@ public class Grille {
                     }
                 }
                 if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].desintegrateur==true)&& (CellulesJeu[i][j].trouNoir!=true)) {
-                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                        Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
                     
                     if (j == 0) {
                         System.out.print("| D |");
@@ -197,7 +199,7 @@ public class Grille {
                     }
                 }
                 if ((CellulesJeu[i][j].lireCouleurDuJeton() == "vide") &&(CellulesJeu[i][j].trouNoir!=true)) {
-                    String Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+                        Couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
                     
                     if (j == 0) {
                         System.out.print("| N |");
