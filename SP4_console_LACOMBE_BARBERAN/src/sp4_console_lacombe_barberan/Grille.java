@@ -240,7 +240,7 @@ public class Grille {
     }
 
     public boolean ligneDesin(int colonne) {
-        int ligne = -1;
+        int ligne = 0;
         for (int i = 5; i >= 0; i--) {
 
             if (CellulesJeu[i][colonne].jetonCourant == null) {
