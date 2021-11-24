@@ -141,7 +141,7 @@ public class Partie {
                     int colonne_recup = sc.nextInt();
                     while ((grillejeu.celluleOccupee(ligne_recup, colonne_recup) != true)
                             || (grillejeu.lireCouleurDuJeton(ligne_recup,colonne_recup)!= joueurCourant.Couleur)
-                            || (ligne_recup >= 0) || (colonne_recup >= 0) || (ligne_recup < 6) || (colonne_recup < 7)) {
+                            || (ligne_recup < 0) || (colonne_recup < 0) || (ligne_recup >= 6) || (colonne_recup >= 7)) {
 
                         System.out.println("rentrez les coordonnez d'un jeton vous appartenant ou qui existe ");
                         System.out.println("rentrez la ligne [0;5]");
@@ -176,7 +176,7 @@ public class Partie {
 
                         while ((grillejeu.celluleOccupee(ligne_supr, colonne_supr) != true)
                                 || (grillejeu.lireCouleurDuJeton(ligne_supr,colonne_supr) == joueurCourant.Couleur)
-                                || (ligne_supr >= 0) || (colonne_supr >= 0) || (ligne_supr < 6) || (colonne_supr < 7)) {
+                                || (ligne_supr < 0) || (colonne_supr< 0) || (ligne_supr >= 6) || (colonne_supr >= 7)) {
                             System.out.println(" Vous vous etes trompés! Rentrez les coordonnées du jeton adverse a supprimer");
                             System.out.println("rentrez la ligne [0;5]");
                             ligne_supr = sc.nextInt();
