@@ -90,8 +90,9 @@ public class Partie {
         int a = r.nextInt(2);
         joueurCourant = ListeJoueurs[a];
         while (grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true && grillejeu.etreRemplie() != true) {
-            System.out.println("Votre Nombre de désintégrateur est de :"+ joueurCourant.nombreDesintegrateurs); 
-            System.out.println("Votre Nombre de jetons restants"+ joueurCourant.nombreJetonsRestants); 
+            System.out.println("Votre Nombre de désintégrateur est de : "+ joueurCourant.nombreDesintegrateurs); 
+            System.out.println("Votre Nombre de jetons restants : "+ joueurCourant.nombreJetonsRestants); 
+            System.out.println("VOtre couleur est : " +joueurCourant.Couleur); 
             grillejeu.afficherGrilleSurConsole();
             System.out.println("Choissis ton coup :");
             System.out.println("1.Placer un jeton");
@@ -111,7 +112,7 @@ public class Partie {
 
                         if (colonne_jc < 7 && colonne_jc >= 0 && grillejeu.colonneRemplie(colonne_jc) != true) {
 
-                            System.out.println("boucle 2");
+                            
 
                             grillejeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1], colonne_jc);
                             if (grillejeu.ligneDesin(colonne_jc) == true) {
@@ -123,7 +124,7 @@ public class Partie {
 
                         }
                         if (coup == false) {
-                            System.out.println("boucle 2");
+                            
                             System.out.println("Place ton jeton, tu t'es trompé");
                             colonne_jc = sc.nextInt();
                         }
@@ -188,6 +189,9 @@ public class Partie {
                         }
                         grillejeu.supprimerJeton(ligne_supr, colonne_supr);
                         grillejeu.tasserGrille(colonne_supr);
+                        joueurCourant.nombreDesintegrateurs-=1; 
+                        
+                        
                         if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))==true) {
                             if (joueurCourant == ListeJoueurs[0]) {
                                 System.out.println(ListeJoueurs[1] + "A gagné! par faute de " + joueurCourant);
