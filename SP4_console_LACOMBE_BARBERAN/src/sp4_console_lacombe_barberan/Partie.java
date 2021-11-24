@@ -138,9 +138,9 @@ public class Partie {
                     break;
 
                 case 2: //Récupérer les jetons 
-                    System.out.println("rentrez la ligne [0;5]");
+                    System.out.println("Rentrez la  ligne du jeton entre 0 et 5 ");
                     int ligne_recup = sc.nextInt();
-                    System.out.println("rentrez la colonne [0;6]");
+                    System.out.println("Rentrez la colonne du jeton visé entre 0 et 6");
                     int colonne_recup = sc.nextInt();
                     while ((grillejeu.celluleOccupee(ligne_recup, colonne_recup) != true)
                             || (grillejeu.lireCouleurDuJeton(ligne_recup,colonne_recup)!= joueurCourant.Couleur)
@@ -171,27 +171,25 @@ public class Partie {
 
                 case 3:
                     if (joueurCourant.nombreDesintegrateurs >= 1) {
-                        System.out.println("rentrez les coordonnées du jeton adverse a supprimer");
-                        System.out.println("rentrez la ligne [0;5]");
+                        System.out.println("Rentrez les coordonnées du jeton adverse à supprimer");
+                        System.out.println("Rentrez la ligne entre 0 et 5");
                         int ligne_supr = sc.nextInt();
-                        System.out.println("rentrez la colonne [0;6]");
+                        System.out.println("Rentrez la colonne entre 0 et 6");
                         int colonne_supr = sc.nextInt();
 
                         while ((grillejeu.celluleOccupee(ligne_supr, colonne_supr) != true)
                                 || (grillejeu.lireCouleurDuJeton(ligne_supr,colonne_supr) == joueurCourant.Couleur)
                                 || (ligne_supr < 0) || (colonne_supr< 0) || (ligne_supr >= 6) || (colonne_supr >= 7)) {
                             System.out.println(" Vous vous etes trompés! Rentrez les coordonnées du jeton adverse a supprimer");
-                            System.out.println("rentrez la ligne [0;5]");
+                            System.out.println("Rentrez la ligne entre 0 et 5");
                             ligne_supr = sc.nextInt();
-                            System.out.println("rentrez la colonne [0;6]");
+                            System.out.println("Rentrez la colonne entre 0 et 6");
                             colonne_supr = sc.nextInt();
 
                         }
                         grillejeu.supprimerJeton(ligne_supr, colonne_supr);
                         grillejeu.tasserGrille(colonne_supr);
-                        joueurCourant.nombreDesintegrateurs-=1; 
-                        
-                        
+                        joueurCourant.nombreDesintegrateurs-=1;
                         if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]))==true) {
                             if (joueurCourant == ListeJoueurs[0]) {
                                 System.out.println(ListeJoueurs[1] + "A gagné! par faute de " + joueurCourant);
@@ -204,7 +202,7 @@ public class Partie {
                         }
 
                     } else {
-                        System.out.println("Vous n'avez pas de desintegrateur  ");// il faut redemarrer au debut du switch case
+                        System.out.println("Vous n'avez pas de desintegrateur ");// il faut redemarrer au debut du switch case
                         if (joueurCourant == ListeJoueurs[0]) {
                             joueurCourant = ListeJoueurs[1];
 
