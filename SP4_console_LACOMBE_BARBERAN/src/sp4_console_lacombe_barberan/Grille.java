@@ -98,7 +98,7 @@ public class Grille {
                         && couleurJ == CellulesJeu[i][j + 1].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 2].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i][j + 3].lireCouleurDuJeton()) {
-                    System.out.println("ligne gagnante: " + i);  
+                    System.out.println("ligne gagnante: " + i +joueur1.Nom);  
 
                     return true; //ligne gagnante
 
@@ -114,7 +114,7 @@ public class Grille {
                         && couleurJ == CellulesJeu[i + 1][j].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i + 2][j].lireCouleurDuJeton()
                         && couleurJ == CellulesJeu[i + 3][j].lireCouleurDuJeton()) {
-                    System.out.println("colonne gagante: " + j);
+                    System.out.println("colonne gagante: " + j+joueur1.Nom);
                     return true;
                 }
             }
@@ -259,7 +259,7 @@ public class Grille {
         
 
         if (CellulesJeu[ligne][colonne].desintegrateur == true) {
-            System.out.println("LA FCT RENVOIE TRUE");
+            //System.out.println("LA FCT RENVOIE TRUE");
             CellulesJeu[ligne][colonne].desintegrateur =false; 
             return true;//verifie si il y a un desintegrateur 
         }

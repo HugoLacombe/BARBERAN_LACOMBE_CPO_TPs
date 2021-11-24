@@ -50,7 +50,7 @@ public class Cellule {
 
     public boolean supprimerJeton() {
         if (jetonCourant == null) {
-            System.out.print("Jeton innexistant ");
+          //  System.out.print("Jeton innexistant ");
             return false;
         } else {
             jetonCourant = null;

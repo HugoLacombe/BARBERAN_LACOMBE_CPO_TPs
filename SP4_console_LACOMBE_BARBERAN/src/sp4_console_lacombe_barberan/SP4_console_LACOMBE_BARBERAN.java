@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package sp4_console_lacombe_barberan;
+import java.util.Scanner;
 
 /**
  *
@@ -15,9 +16,17 @@ public class SP4_console_LACOMBE_BARBERAN {
      */
     public static void main(String[] args) {
         
+System.out.println("Bienvenue dans le Super-Puissance 4 !!"); 
+System.out.println("Tout d'abord choissisez vos pseudos, joueur n°1 comment vous vous appelez ?");
+Scanner sc = new Scanner(System.in);
+String pseudo1 = sc.nextLine();
+System.out.println("Joueur 2 votre pseudo ?");
+String pseudo2 =sc.nextLine();
+System.out.println("Que la partie commence !!");
 
-          Joueur joueur1 = new Joueur("h");
-           Joueur joueur2 = new Joueur("b");
+
+          Joueur joueur1 = new Joueur(pseudo1);
+           Joueur joueur2 = new Joueur(pseudo2);
           
           Partie part1 = new Partie(joueur1,joueur2); 
           part1.attribuerCouleursAuxJoueurs();
