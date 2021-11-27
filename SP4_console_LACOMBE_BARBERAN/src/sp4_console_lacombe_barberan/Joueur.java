@@ -9,6 +9,7 @@ package sp4_console_lacombe_barberan;
  * @author Hugo.L
  */
 public class Joueur {
+    boolean Vict; 
     String Nom;
     String Couleur;
     Jeton [] ListeJetons =new Jeton[21];
@@ -18,6 +19,7 @@ public class Joueur {
     public Joueur(String nom){
         Nom=nom; 
         nombreJetonsRestants=21; 
+        Vict=false; 
         
     }
     public void affecterCouleur(String couleur){

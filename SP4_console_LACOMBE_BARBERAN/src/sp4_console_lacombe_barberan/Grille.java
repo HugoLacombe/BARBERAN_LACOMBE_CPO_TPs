@@ -278,13 +278,17 @@ public class Grille {
 
     public void tasserGrille(int j) {
 
-        for (int i = 1; i < 6; i++) {
+        for (int i = 5; i >=1; i--) {
 
             if (CellulesJeu[i][j].jetonCourant == null ) {
 
                 CellulesJeu[i][j].jetonCourant = CellulesJeu[i -1][j].jetonCourant;
 
                 CellulesJeu[i -1][j].jetonCourant = null;
+                
+                
+         
+
 
             }
 
