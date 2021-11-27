@@ -103,10 +103,11 @@ public class Partie {
         Random r = new Random();
         int a = r.nextInt(2);
         joueurCourant = ListeJoueurs[a];
-        System.out.println("LAAAAA");
+        
         while (ListeJoueurs[0].Vict != true && ListeJoueurs[1].Vict != true && grillejeu.etreRemplie() != true) {
             System.out.println("");
             System.out.println("Information sur le joueur");
+            System.out.println("Au tour de : "+joueurCourant.Nom);
             System.out.println("Votre Nombre de désintégrateur est de : " + joueurCourant.nombreDesintegrateurs);
             System.out.println("Votre Nombre de jetons restants : " + joueurCourant.nombreJetonsRestants);
             System.out.println("VOtre couleur est : " + joueurCourant.Couleur);
@@ -220,17 +221,19 @@ public class Partie {
                         grillejeu.tasserGrille(colonne_supr);
                         System.out.println("Désintégration avec succés");
                         joueurCourant.nombreDesintegrateurs -= 1;
+                         ListeJoueurs[0].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]); 
+                         ListeJoueurs[1].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]); 
                         if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])) == true) {
                             System.out.println("~Affichage de la Grille~");
                             System.out.println("");
                             grillejeu.afficherGrilleSurConsole();
                             System.out.println("");
                             if (joueurCourant == ListeJoueurs[0]) {
-                                System.out.println(ListeJoueurs[1] + "A gagné! par faute de " + joueurCourant);
+                                System.out.println(ListeJoueurs[1].Nom + "A gagné! par faute de " + joueurCourant.Nom);
                                 ListeJoueurs[1].Vict=true; 
 
                             } else {
-                                System.out.println(ListeJoueurs[0] + "A gagné! par faute de " + joueurCourant);
+                                System.out.println(ListeJoueurs[0].Nom + "A gagné! par faute de " + joueurCourant.Nom);
                                 ListeJoueurs[0].Vict=true; 
 
                             }
@@ -247,23 +250,30 @@ public class Partie {
 
                         }
                     }
-                    ListeJoueurs[0].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]); 
-                    ListeJoueurs[1].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]); 
+                   
                     break;
 
             }
             if (joueurCourant == ListeJoueurs[0]) {
                 joueurCourant = ListeJoueurs[1];
-                System.out.println("A ton tour " + ListeJoueurs[1].Nom);
+            
 
             } else {
                 joueurCourant = ListeJoueurs[0];
-                System.out.println("A ton tour " + ListeJoueurs[0].Nom);
+               
             }
 
         }
-        System.out.println(ListeJoueurs[0].Vict);
-        System.out.println(ListeJoueurs[1].Vict);
+        
+        System.out.println("~Résultats~"); 
+        System.out.println(""); 
+        if(ListeJoueurs[0].Vict==true){
+            System.out.println("Félicitations "+ListeJoueurs[0].Nom+" tu as gagné !"); 
+        }
+        else{
+            System.out.println("Félicitations "+ListeJoueurs[1].Nom+" tu as gagné !"); 
+        }
+        System.out.println("");
         System.out.println("PARTIE TERMINE");
         
         grillejeu.afficherGrilleSurConsole();
