@@ -19,7 +19,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         Panneau_Info_Joueur.setVisible(false);
         Panneau_Info_Partie.setVisible(false);
 
-        for (int i = 5; i >= 0; i--) { // ici haut de la grille est 00
+        for (int i = 0; i >= 5; i++) { // ici haut de la grille est 00
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grillejeu.CellulesJeu[i][j]);
                 Panneau_Grille.add(cellGraph);
