@@ -171,17 +171,25 @@ public class Grille {
 
                     if (Couleur == "rouge") {
                         if (j == 0) {
-                            System.out.print("| R |");
+                            System.out.print("|");
+                                System.out.print("\u001B[31m R "); 
+                                        System.out.print("\u001B[0m|");
                         } else {
-                            System.out.print(" R |");
+                            System.out.print("\u001B[31m R ");
+                            System.out.print("\u001B[0m|");
                         }
 
                     }
                     if (Couleur == "jaune") {
                         if (j == 0) {
-                            System.out.print("| J |");
+                            System.out.print("|");
+                                System.out.print("\u001B[33m J "); 
+                                        System.out.print("\u001B[0m|");
+                            
                         } else {
-                            System.out.print(" J |");
+                            System.out.print("\u001B[33m J");
+                            System.out.print("\u001B[0m |");
+                            
                         }
 
                     }
