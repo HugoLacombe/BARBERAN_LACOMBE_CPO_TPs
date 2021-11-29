@@ -10,11 +10,22 @@ package sp4_console_lacombe_barberan;
  */
 public class FenetreDeJeu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FenetreDeJeu
-     */
+    Joueur[] ListeJoueurs = new Joueur[2];
+    Joueur joueurCourant;
+    Grille grillejeu;
+
     public FenetreDeJeu() {
         initComponents();
+        Panneau_Info_Joueur.setVisible(false);
+        Panneau_Info_Partie.setVisible(false);
+
+        for (int i = 5; i >= 0; i--) { // ici haut de la grille est 00
+            for (int j = 0; j < 7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grillejeu.CellulesJeu[i][j]);
+                Panneau_Grille.add(cellGraph);
+
+            }
+        }
     }
 
     /**
@@ -218,7 +229,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_nom_joueur1ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        // TODO add your handling code here:
+        Panneau_Info_Joueur.setVisible(true);
+        Panneau_Info_Partie.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
