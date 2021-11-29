@@ -108,6 +108,9 @@ public class Partie {
         while (ListeJoueurs[0].Vict != true && ListeJoueurs[1].Vict != true && grillejeu.etreRemplie() != true) {
             //Affichage informations joueurs 
             //Affichage grille 
+            int nombre; 
+                    Scanner sc = new Scanner(System.in);
+            do{
             System.out.println("");
             System.out.println("Information sur le joueur");
             System.out.println("Au tour de : "+joueurCourant.Nom);
@@ -123,9 +126,11 @@ public class Partie {
             System.out.println("1.Placer un jeton");
             System.out.println("2.Récupérer un jeton de sa couleur");
             System.out.println("3.Désintégrer un jeton de la couleur adverse");
-            Scanner sc = new Scanner(System.in);
-            int nombre = sc.nextInt();
-            switch (nombre) {
+            
+            
+             nombre = sc.nextInt();
+            }while (nombre!=1 && nombre!=2 && nombre!=3); 
+            switch (nombre) { 
                 case 1: // Placer un jeton dans la grille
                     System.out.println("Placez votre jeton dans une colonne? ");
 
@@ -151,7 +156,14 @@ public class Partie {
                         if (coup == false) {
 
                             System.out.println("Place ton jeton, tu t'es trompé");
-                            colonne_jc = sc.nextInt();
+                              if (joueurCourant == ListeJoueurs[0]) {
+                            joueurCourant = ListeJoueurs[1];
+
+                        } else {
+                            joueurCourant = ListeJoueurs[0];
+
+                        }
+                          coup=true;   
                         }
 
                     } while (coup == false);
