@@ -9,13 +9,14 @@ package sp4_console_lacombe_barberan;
  * @author Hugo.L
  */
 public class Joueur {
+    // vict attribut qui indique si le joeur possède une ligne/ diag/ colonne gagnante 
     boolean Vict; 
     String Nom;
     String Couleur;
     Jeton [] ListeJetons =new Jeton[21];
     int nombreDesintegrateurs ; 
     int nombreJetonsRestants;
-    
+    // contructeur 
     public Joueur(String nom){
         Nom=nom; 
         nombreJetonsRestants=21; 

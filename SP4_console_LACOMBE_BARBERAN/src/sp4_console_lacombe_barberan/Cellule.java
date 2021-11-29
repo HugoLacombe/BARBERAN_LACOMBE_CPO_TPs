@@ -34,7 +34,7 @@ public class Cellule {
             return false;
         }
     }
-
+// renvoie la couleur du joueur 
     public String lireCouleurDuJeton() {
         if (jetonCourant == null) {
             return "vide";
@@ -47,7 +47,7 @@ public class Cellule {
         return jetonCourant;
     }
     
-
+    // Supprime le jeton visé 
     public boolean supprimerJeton() {
         if (jetonCourant == null) {
           //  System.out.print("Jeton innexistant ");
@@ -57,7 +57,7 @@ public class Cellule {
             return true;
         }
     }
-
+// méthode qui place les troues noir
     public boolean placerTrouNoir() {
         if (trouNoir == false) {
             trouNoir = true;
@@ -68,7 +68,7 @@ public class Cellule {
             return false;
         }
     }
-
+// méthode qui place les désintégrateurs 
     public boolean placerDesintegrateur() {
         if (desintegrateur == false) {
             desintegrateur = true;
@@ -80,7 +80,7 @@ public class Cellule {
         }
 
     }
-
+// Teste la présence des troues Noir 
     public boolean presenceTrouNoir() {
         if (trouNoir == false) {
             return false;
@@ -88,7 +88,7 @@ public class Cellule {
             return true;
         }
     }
-
+// teste la présence des désinté 
     public boolean presenceDesintegrateur() {
         if (desintegrateur == false) {
             return false;
@@ -107,7 +107,7 @@ public class Cellule {
             return false;
         }
     }
-
+// passe un troue noir en actif 
     public boolean activerTrouNoir() {
         if (trouNoir == true) {
             jetonCourant = null; // vide la cellule
