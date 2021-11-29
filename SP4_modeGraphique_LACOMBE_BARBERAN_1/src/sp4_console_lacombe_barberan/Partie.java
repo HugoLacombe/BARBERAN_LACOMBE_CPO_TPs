@@ -27,6 +27,7 @@ public class Partie {
     public void attribuerCouleursAuxJoueurs() {
         // couleur Jaune attribué à 0
         // couleur Jaune attribué à 1 
+        
         Random r = new Random();
         int n = r.nextInt(1);
         if (n == 0) {
@@ -43,7 +44,7 @@ public class Partie {
 
         grillejeu = new Grille();
         Random r = new Random();
-
+             
 //creation des jetons joueur1
         for (int i = 0; i <= 20; i++) {
             Jeton jeton = new Jeton(ListeJoueurs[0].Couleur);
