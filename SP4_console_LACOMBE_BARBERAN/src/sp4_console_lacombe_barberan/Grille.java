@@ -11,7 +11,7 @@ package sp4_console_lacombe_barberan;
 public class Grille {
 
     Cellule[][] CellulesJeu = new Cellule[6][7];
-
+// constructeur 
     public Grille() {
         for (int i = 0; i < 6; i++) {
 
@@ -21,7 +21,8 @@ public class Grille {
             }
         }
     }
-
+// Entrée : ligne , colonne 
+    // Place le jeton dans la grille à l'endroit indiquer 
     public boolean ajouterJetonDansColonne(Jeton jeton, int colonne) {
         for (int i = 5; i >= 0; i--) {
             /*/
@@ -41,7 +42,7 @@ public class Grille {
         }
         return false;
     }
-
+// vérifie si la grille est remplie ou pas 
     public boolean etreRemplie() {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
@@ -74,6 +75,7 @@ public class Grille {
         
     }
     /*/
+    //indique si une cellule est occupée ou pas 
     public boolean celluleOccupee(int ligne, int colonne) {
         if (CellulesJeu[ligne][colonne].jetonCourant == null) {
             return false;// pas occupée
@@ -87,7 +89,8 @@ public class Grille {
         return couleur;
 
     }
-
+// méthode qui teste si une grille est gagante 
+    // regarde si jetons sont alignées  
     public boolean etreGagnantePourJoueur(Joueur joueur1) {
         String couleurJ = joueur1.Couleur;
         int cpt = 0;
@@ -146,7 +149,7 @@ public class Grille {
         }
         return false;
     }
-
+// vérifie si une colonne est remplie 
     public boolean colonneRemplie(int j) {
         if (CellulesJeu[0][j].jetonCourant != null) {
             return true;
@@ -275,7 +278,7 @@ public class Grille {
         return jetonvise;
 
     }
-
+// tasse la grille cad comble les troues crées par un désintégrateur ou par une récupération
     public void tasserGrille(int j) {
 
         for (int i = 5; i >=1; i--) {

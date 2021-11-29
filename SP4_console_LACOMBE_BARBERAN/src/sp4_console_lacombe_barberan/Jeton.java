@@ -7,6 +7,7 @@ package sp4_console_lacombe_barberan;
 /**
  *
  * @author Hugo
+ * Classe jeton 
  */
 public class Jeton {
     String Couleur;

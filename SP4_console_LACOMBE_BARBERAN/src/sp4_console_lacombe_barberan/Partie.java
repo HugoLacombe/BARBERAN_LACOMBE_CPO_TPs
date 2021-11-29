@@ -11,11 +11,12 @@ import java.util.Scanner;
  *
  * @author Baptiste
  */
+
 public class Partie {
 
     Joueur[] ListeJoueurs = new Joueur[2];
-    Joueur joueurCourant;
-    Grille grillejeu;
+    Joueur joueurCourant;// joeur qui joue
+    Grille grillejeu;// grille utilisé pour le jeu
 
     public Partie(Joueur joueur1, Joueur joueur2) {
 
@@ -38,7 +39,7 @@ public class Partie {
         }
 
     }
-
+//Initilisatin d'une partie (constructeur) 
     public void initialiserPartie() {
 
         grillejeu = new Grille();
@@ -97,7 +98,7 @@ public class Partie {
         //grillejeu.placerDesintegrateur(5, 2);
         //grillejeu.placerDesintegrateur(5, 3);
     }
-
+// Gestion totale d'une partie 
     public void debuterPartie() {
         
         Random r = new Random();
@@ -105,6 +106,8 @@ public class Partie {
         joueurCourant = ListeJoueurs[a];
         
         while (ListeJoueurs[0].Vict != true && ListeJoueurs[1].Vict != true && grillejeu.etreRemplie() != true) {
+            //Affichage informations joueurs 
+            //Affichage grille 
             System.out.println("");
             System.out.println("Information sur le joueur");
             System.out.println("Au tour de : "+joueurCourant.Nom);
@@ -123,12 +126,12 @@ public class Partie {
             Scanner sc = new Scanner(System.in);
             int nombre = sc.nextInt();
             switch (nombre) {
-                case 1:
+                case 1: // Placer un jeton dans la grille
                     System.out.println("Placez votre jeton dans une colonne? ");
 
-                    int colonne_jc = sc.nextInt();
+                    int colonne_jc = sc.nextInt();// saissie utilisateur
 
-                    boolean coup = false;
+                    boolean coup = false; // variable qui confirme si le jeton est bien placé
 
                     do {
 
@@ -164,10 +167,12 @@ public class Partie {
                     break;
 
                 case 2: //Récupérer les jetons 
+                    
                     System.out.println("Rentrez la  ligne du jeton entre 0 et 5 ");
                     int ligne_recup = sc.nextInt();
                     System.out.println("Rentrez la colonne du jeton visé entre 0 et 6");
                     int colonne_recup = sc.nextInt();
+                    //Boucle vérification si la saissie utilisateur est valide
                     while ((grillejeu.celluleOccupee(ligne_recup, colonne_recup) != true)
                             || (grillejeu.lireCouleurDuJeton(ligne_recup, colonne_recup) != joueurCourant.Couleur)
                             || (ligne_recup < 0) || (colonne_recup < 0) || (ligne_recup >= 6) || (colonne_recup >= 7)) {
@@ -181,8 +186,9 @@ public class Partie {
                     }
 
                     joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants)] = grillejeu.recupererJeton(ligne_recup, colonne_recup);
-                    joueurCourant.nombreJetonsRestants += 1;
-                    grillejeu.tasserGrille(colonne_recup);
+                    joueurCourant.nombreJetonsRestants += 1; // ajoute un jeton au joueur qui joue 
+                    grillejeu.tasserGrille(colonne_recup); // tasse la grille
+                    //vérification si il y a eux gagnants et détermine le gagnant 
                     if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])) == true) {
                         if (joueurCourant == ListeJoueurs[0]) {
                             System.out.println(ListeJoueurs[1] + "a gagné! par faute de " + joueurCourant.Nom);
@@ -199,7 +205,8 @@ public class Partie {
                     ListeJoueurs[1].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]); 
                     break;
 
-                case 3://utilisation désint
+                case 3://utilisation désintégrateurs
+                    //vérification si le joueur peut utilisier un désinté
                     if (joueurCourant.nombreDesintegrateurs >= 1) {
                         System.out.println("Rentrez les coordonnées du jeton adverse à supprimer");
                         System.out.println("Rentrez la ligne entre 0 et 5");
@@ -221,8 +228,10 @@ public class Partie {
                         grillejeu.tasserGrille(colonne_supr);
                         System.out.println("Désintégration avec succés");
                         joueurCourant.nombreDesintegrateurs -= 1;
+                        // voir qui a gagné 
                          ListeJoueurs[0].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]); 
                          ListeJoueurs[1].Vict=grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]); 
+                         //vérification si il y a deux gagnants 
                         if ((grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) && (grillejeu.etreGagnantePourJoueur(ListeJoueurs[1])) == true) {
                             System.out.println("~Affichage de la Grille~");
                             System.out.println("");
