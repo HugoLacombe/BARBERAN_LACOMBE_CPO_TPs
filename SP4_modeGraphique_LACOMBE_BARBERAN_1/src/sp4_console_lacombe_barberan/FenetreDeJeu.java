@@ -14,16 +14,18 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
-    Grille grillejeu;
+    Grille grillejeu = new Grille();
 
     public FenetreDeJeu() {
         initComponents();
         Panneau_Info_Joueur.setVisible(false);
         Panneau_Info_Partie.setVisible(false);
 
-        for (int i = 0; i >= 5; i++) { // ici haut de la grille est 00
+         for (int i = 0; i < 6; i++) {
+
             for (int j = 0; j < 7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique(grillejeu.CellulesJeu[i][j]);
+                
+                CelluleGraphique cellGraph = new CelluleGraphique(grillejeu.CellulesJeu[i][j]);//
                 Panneau_Grille.add(cellGraph);
 
             }
@@ -61,7 +63,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_desint = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        lbl_j2_nom1 = new javax.swing.JLabel();
+        lbl_j2_nom = new javax.swing.JLabel();
         Panneau_Info_Partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -160,8 +162,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel12.setText("Joueur 2 :");
         Panneau_Info_Joueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 60, 20));
 
-        lbl_j2_nom1.setText("NomJoueur2");
-        Panneau_Info_Joueur.add(lbl_j2_nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 90, 20));
+        lbl_j2_nom.setText("NomJoueur2");
+        Panneau_Info_Joueur.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 90, 20));
 
         getContentPane().add(Panneau_Info_Joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 280, 260));
 
@@ -233,6 +235,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         Panneau_Info_Joueur.setVisible(true);
         Panneau_Info_Partie.setVisible(true); 
+        initialiserPartie();
+        Panneau_Grille.repaint();
+        btn_start.setEnabled(false);
     
 
 // TODO add your handling code here:
@@ -282,14 +287,23 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }
     public void initialiserPartie() {
 
-        grillejeu = new Grille();
+        grillejeu.viderGrille();
         Random r = new Random();
         
         String nomj1= nom_joueur1.getText();
         Joueur joueur1= new Joueur(nomj1);
         String nomj2= nom_joueur2.getText();
         Joueur joueur2= new Joueur(nomj2);
-
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+        attribuerCouleursAuxJoueurs();
+        
+        lbl_j1_nom.setText( nomj1);
+        lbl_j2_nom.setText( nomj2);
+        lb_j1_couleur.setText(joueur1.Couleur);
+        lb_j2_couleur.setText(joueur2.Couleur);
+        lbl_j1_desint.setText(joueur1.nombreDesintegrateurs + "");
+        lbl_j2_desint.setText(joueur2.nombreDesintegrateurs + "");
 //creation des jetons joueur1
         for (int i = 0; i <= 20; i++) {
             Jeton jeton = new Jeton(ListeJoueurs[0].Couleur);
@@ -338,10 +352,10 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 cpt2 += 1;
             }
         }
-
-        //grillejeu.placerDesintegrateur(5, 1);
-        //grillejeu.placerDesintegrateur(5, 2);
-        //grillejeu.placerDesintegrateur(5, 3);
+     
+        int a = r.nextInt(2);
+        joueurCourant = ListeJoueurs[a];  
+        lbl_jcourant.setText(joueurCourant.Nom);
     }
     
     public void attribuerCouleursAuxJoueurs() {
@@ -358,7 +372,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         }
 
     }
-
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panneau_Création_Partie;
@@ -394,7 +408,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j1_desint;
     private javax.swing.JLabel lbl_j1_nom;
     private javax.swing.JLabel lbl_j2_desint;
-    private javax.swing.JLabel lbl_j2_nom1;
+    private javax.swing.JLabel lbl_j2_nom;
     private javax.swing.JLabel lbl_jcourant;
     private javax.swing.JTextArea message;
     private javax.swing.JTextField nom_joueur1;
