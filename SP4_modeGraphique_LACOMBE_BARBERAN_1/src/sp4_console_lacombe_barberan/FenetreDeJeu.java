@@ -4,6 +4,8 @@
  */
 package sp4_console_lacombe_barberan;
 
+import java.util.Random;
+
 /**
  *
  * @author Baptiste
@@ -230,7 +232,10 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         Panneau_Info_Joueur.setVisible(true);
-        Panneau_Info_Partie.setVisible(true);        // TODO add your handling code here:
+        Panneau_Info_Partie.setVisible(true); 
+    
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
@@ -275,6 +280,85 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+    public void initialiserPartie() {
+
+        grillejeu = new Grille();
+        Random r = new Random();
+        
+        String nomj1= nom_joueur1.getText();
+        Joueur joueur1= new Joueur(nomj1);
+        String nomj2= nom_joueur2.getText();
+        Joueur joueur2= new Joueur(nomj2);
+
+//creation des jetons joueur1
+        for (int i = 0; i <= 20; i++) {
+            Jeton jeton = new Jeton(ListeJoueurs[0].Couleur);
+            ListeJoueurs[0].ajouterJeton(jeton);
+
+        }
+        //creation des jetons joueur1
+        for (int j = 0; j <= 20; j++) {
+            Jeton jeton = new Jeton(ListeJoueurs[1].Couleur);
+            ListeJoueurs[1].ajouterJeton(jeton);
+
+        }
+        //placer les trous noir 
+        int cpt1 = 0;
+        while (cpt1 < 5) {
+            int a = r.nextInt(5);    //tirer aleatoirement un entier  
+            int b = r.nextInt(6);
+            if (grillejeu.CellulesJeu[a][b].trouNoir == false) {
+                grillejeu.placerTrouNoir(a, b);
+                cpt1 += 1;
+
+            }
+
+        }
+
+        //placer les desintegrateurs
+        int cpt = 0;
+        while (cpt < 2) {
+
+            int x = r.nextInt(5);    //tirer aleatoirement un entier  
+            int y = r.nextInt(6);
+            if ((grillejeu.CellulesJeu[x][y].trouNoir == true) && (grillejeu.CellulesJeu[x][y].presenceDesintegrateur() == false)) {
+                grillejeu.placerDesintegrateur(x, y);
+                cpt += 1;
+            }
+
+        }
+        int cpt2 = 0;
+
+        while (cpt2 < 3) {
+
+            int x = r.nextInt(5);    //tirer aleatoirement un entier  
+            int y = r.nextInt(6);
+            if ((grillejeu.CellulesJeu[x][y].trouNoir == false) && (grillejeu.CellulesJeu[x][y].presenceDesintegrateur() == false)) {
+                grillejeu.placerDesintegrateur(x, y);
+                cpt2 += 1;
+            }
+        }
+
+        //grillejeu.placerDesintegrateur(5, 1);
+        //grillejeu.placerDesintegrateur(5, 2);
+        //grillejeu.placerDesintegrateur(5, 3);
+    }
+    
+    public void attribuerCouleursAuxJoueurs() {
+        // couleur Jaune attribué à 0
+        // couleur Jaune attribué à 1 
+        Random r = new Random();
+        int n = r.nextInt(1);
+        if (n == 0) {
+            ListeJoueurs[0].Couleur = "jaune";
+            ListeJoueurs[1].Couleur = "rouge";
+        } else {
+            ListeJoueurs[0].Couleur = "rouge";
+            ListeJoueurs[1].Couleur = "jaune";
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panneau_Création_Partie;
