@@ -15,7 +15,7 @@ public class Cellule {
     boolean desintegrateur;
 
     public Cellule() {
-        jetonCourant = null;
+        jetonCourant = null;// initialise la valeur du jeton 
         trouNoir = false;
         desintegrateur = false;
     }
@@ -23,7 +23,7 @@ public class Cellule {
     public boolean affecterJeton(Jeton Jeton) { // affecte le jeton en paramètre ou retourne faux si cellule pleine 
         if (jetonCourant == null) {
 
-            jetonCourant = Jeton;
+            jetonCourant = Jeton; 
 
             activerTrouNoir();
 
@@ -35,6 +35,11 @@ public class Cellule {
         }
     }
 
+    /**
+     *
+     * @return couleur du jeton en argument 
+     * ou vide si il n'y a pas de jeton 
+     */
     public String lireCouleurDuJeton() {
         if (jetonCourant == null) {
             return "vide";
@@ -43,11 +48,21 @@ public class Cellule {
         }
     }
 
+    /**
+     * @return jetoncourant
+     */
     public Jeton recupererJeton() {
+     
+                
+    
         return jetonCourant;
     }
     
-
+    /**
+     *verif si il y un jeton false 
+     * sinon suppr le jeton true 
+     * @return boolean 
+     */
     public boolean supprimerJeton() {
         if (jetonCourant == null) {
           //  System.out.print("Jeton innexistant ");
@@ -58,6 +73,11 @@ public class Cellule {
         }
     }
 
+    /**
+     *place un trou noir dans la cellule  si il y en a pas true 
+     * sinon false 
+     * @return boolean 
+     */
     public boolean placerTrouNoir() {
         if (trouNoir == false) {
             trouNoir = true;
@@ -69,6 +89,11 @@ public class Cellule {
         }
     }
 
+    /**
+     *place un desintegrateur dans la cellule  si il y en a pas true 
+     * sinon false 
+     * @return boolean
+     */
     public boolean placerDesintegrateur() {
         if (desintegrateur == false) {
             desintegrateur = true;
@@ -81,6 +106,10 @@ public class Cellule {
 
     }
 
+    /**
+     *verif si il y un trou noir
+     * @return boolean
+     */
     public boolean presenceTrouNoir() {
         if (trouNoir == false) {
             return false;
@@ -89,6 +118,10 @@ public class Cellule {
         }
     }
 
+    /**
+     *Indique la prence desintegrateur 
+     * @return boolean
+     */
     public boolean presenceDesintegrateur() {
         if (desintegrateur == false) {
             return false;
@@ -97,6 +130,11 @@ public class Cellule {
         }
     }
 
+    /**
+     *si desinte supprime true 
+     * sinon false
+     * @return boolean 
+     */
     public boolean recupererDesintegrateur() {
         if (desintegrateur == true) {
             desintegrateur = false;
@@ -108,6 +146,11 @@ public class Cellule {
         }
     }
 
+    /**
+     *si trou noir est la suppr jeton de la cellule et met trou noir en false et renvoie true 
+     * sinon renvoie false 
+     * @return boolran
+     */
     public boolean activerTrouNoir() {
         if (trouNoir == true) {
             jetonCourant = null; // vide la cellule

@@ -11,10 +11,19 @@ package sp4_console_lacombe_barberan;
 public class Jeton {
     String Couleur;
     
+    /**
+     *afecte la couleur en argument au jeton 
+     * @param unecouleur string 
+     */
     public Jeton(String unecouleur){
         Couleur=unecouleur; 
     
     }
+    
+    /**
+     *
+     * @return couleur du joueur 
+     */
     public String lireCouleur(){
         return Couleur;
     }
