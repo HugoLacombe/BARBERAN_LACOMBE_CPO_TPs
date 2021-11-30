@@ -295,5 +295,10 @@ public class Grille {
         }
 
     }
+    public void tasserGrillecomplet(){
+        for(int i=0; i<7; i++){
+            tasserGrille(i);
+        }
+    } 
 
 }

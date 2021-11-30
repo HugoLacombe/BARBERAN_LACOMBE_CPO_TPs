@@ -26,6 +26,56 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             for (int j = 0; j < 7; j++) {
 
                 CelluleGraphique cellGraph = new CelluleGraphique(grillejeu.CellulesJeu[i][j]);//
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        message.setText("Un bouton a été cliqué");
+                        Cellule c = cellGraph.celluleAssociee;
+                        if (c.jetonCourant == null) {
+                            return;
+
+                        }
+                        if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
+                            message.setText("Le joueur :" + joueurCourant.Nom + "récupère un de ses jetons");
+                            Jeton jrecup = c.recupererJeton();
+                            joueurCourant.ajouterJeton(jrecup);
+                            joueurSuivant();
+
+                        } else {
+                            if (joueurCourant.nombreDesintegrateurs >= 1) {
+                                message.setText("Le joueur : " + joueurCourant.Nom + "désintégre un des jetons inverses");
+                                c.supprimerJeton();
+                                joueurCourant.utiliserDeseintegrateur();
+                                joueurSuivant();
+
+                            } else {
+                                return;
+                            }
+
+                        }
+                        grillejeu.tasserGrillecomplet();
+                        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + "");
+                        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
+
+                        ListeJoueurs[0].Vict = grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+                        ListeJoueurs[1].Vict = grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+                        if (ListeJoueurs[0].Vict && !ListeJoueurs[1].Vict) {
+                            message.setText("Victoire de " + ListeJoueurs[0].Nom);
+                        }
+                        if (ListeJoueurs[1].Vict && !ListeJoueurs[0].Vict) {
+                            message.setText("Victoire de " + ListeJoueurs[1].Nom);
+                        }
+                        if (ListeJoueurs[0].Vict && ListeJoueurs[1].Vict) {
+                            if (joueurCourant == ListeJoueurs[0]) {
+                                message.setText("Victoire de " + ListeJoueurs[1].Nom + " par la faute de jeu de " + ListeJoueurs[0].Nom);
+                            } else {
+                                message.setText("Victoire de " + ListeJoueurs[0].Nom + " par la faute de jeu de " + ListeJoueurs[1].Nom);
+                            }
+
+                        }
+
+                    }
+
+                });
                 Panneau_Grille.add(cellGraph);
 
             }
@@ -337,18 +387,33 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
     public boolean joueurDansColonne(int indice_colonne) {
-
+        Panneau_Grille.repaint();
         // variable qui confirme si le jeton est bien placé
         if (grillejeu.colonneRemplie(indice_colonne) != true) {
 
             grillejeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1], indice_colonne);
             if (grillejeu.ligneDesin(indice_colonne) == true) {
                 joueurCourant.nombreDesintegrateurs += 1;
-                 lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + "");
-                 lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
-            
+                lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + "");
+                lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
+            }
+            ListeJoueurs[0].Vict = grillejeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+            ListeJoueurs[1].Vict = grillejeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+            if (ListeJoueurs[0].Vict && !ListeJoueurs[1].Vict) {
+                message.setText("Victoire de " + ListeJoueurs[0].Nom);
+            }
+            if (ListeJoueurs[1].Vict && !ListeJoueurs[0].Vict) {
+                message.setText("Victoire de " + ListeJoueurs[1].Nom);
+            }
+            if (ListeJoueurs[0].Vict && ListeJoueurs[1].Vict) {
+                if (joueurCourant == ListeJoueurs[0]) {
+                    message.setText("Victoire de " + ListeJoueurs[1].Nom + " par la faute de jeu de " + ListeJoueurs[0].Nom);
+                } else {
+                    message.setText("Victoire de " + ListeJoueurs[0].Nom + " par la faute de jeu de " + ListeJoueurs[1].Nom);
+                }
 
             }
+
             joueurCourant.ListeJetons[(joueurCourant.nombreJetonsRestants) - 1] = null;
             joueurCourant.nombreJetonsRestants -= 1;
             Panneau_Grille.repaint();
