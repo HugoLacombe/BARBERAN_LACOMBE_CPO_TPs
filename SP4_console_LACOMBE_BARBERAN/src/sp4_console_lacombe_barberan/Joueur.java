@@ -23,11 +23,22 @@ public class Joueur {
         Vict=false; 
         
     }
+
+    /**
+     *renvoie la couleur en argument et l'associe au joueur
+     * @param couleur
+     */
     public void affecterCouleur(String couleur){
         Couleur = couleur; 
         
         
     }
+
+    /**
+     *Ajoute le jeton en argument dans la liste de jeton du joueurs dans une case vide 
+     * @param jeton
+     * @return
+     */
     public boolean ajouterJeton(Jeton jeton){
         
     
@@ -43,9 +54,18 @@ public class Joueur {
             }
         return false; 
         }
+    
+    /**
+     *incremente le nombre de desintegrateur du joueur 
+     */
     public void obtenirDesintegrateur(){
         nombreDesintegrateurs+=1;
     }
+
+    /**
+     *incremente le nombre de desintegarteur si il en possede 
+     * @return boolean
+     */
     public boolean utiliserDeseintegrateur(){
         if (nombreDesintegrateurs>0){
             nombreDesintegrateurs-=1;
