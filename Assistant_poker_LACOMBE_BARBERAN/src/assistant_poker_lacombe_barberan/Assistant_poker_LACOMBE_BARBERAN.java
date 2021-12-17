@@ -37,20 +37,20 @@ public class Assistant_poker_LACOMBE_BARBERAN {
 
         }
 
-        int m = 7;
+        k=2;
         for (int j = 26; j <  39; j++) {
             String sym = "Trèfle";
 
-            Pioche[j] = new Carte(sym, m);
-            m += 1;
+            Pioche[j] = new Carte(sym, k);
+            k+= 1;
 
         }
-        int z = 7;
+        k=2;
         for (int j =39; j <52; j++) {
             String sym = "Carreaux";
 
-            Pioche[j] = new Carte(sym, z);
-            z += 1;
+            Pioche[j] = new Carte(sym, k);
+            k += 1;
 
         }
         System.out.println(Pioche[25]);
