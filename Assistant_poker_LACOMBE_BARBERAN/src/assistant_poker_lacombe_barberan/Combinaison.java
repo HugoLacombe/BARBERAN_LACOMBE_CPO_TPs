@@ -10,6 +10,25 @@ package assistant_poker_lacombe_barberan;
  */
 public class Combinaison {
     
-// méthode paire avec array list en argument 
-    
+// méthode paire avec tableuau d'indices de cartes en argument 
+// Il faut acceder a la au rang de la carte qui est de l'indice dans le tableau pour voir si deux rangs sont identiques 
+   public int Paire (){ 
+     int cpt_carte_id=0;
+       for (int k=0;k<5;k++){
+           
+       
+        for (int i=0; i<5;i++){
+         if (tab[k]==tab[i]){
+         
+              cpt_carte_id+=1
+                      ;  
+       } 
+       
+   }
+       }
+   
+   }
+
+
+
 }
