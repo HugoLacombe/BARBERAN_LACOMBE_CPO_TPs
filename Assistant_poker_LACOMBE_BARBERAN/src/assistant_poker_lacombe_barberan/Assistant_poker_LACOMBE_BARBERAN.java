@@ -18,26 +18,27 @@ public class Assistant_poker_LACOMBE_BARBERAN {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        Carte Pioche[] = new Carte[32];
+        Carte Pioche[] = new Carte[52];
 
-        int k = 7;
-        for (int j = 0; j < 8; j++) {
+        int k = 2;
+        for (int j = 0; j <13; j++) {
             String sym = "Coeur";
 
             Pioche[j] = new Carte(sym, k);
             k += 1;
 
         }
-        int p = 7;
-        for (int j = 8; j < 16; j++) {
+        k=2;
+        for (int j = 13; j < 26; j++) {
             String sym = "Pique";
 
-            Pioche[j] = new Carte(sym, p);
+            Pioche[j] = new Carte(sym, k);
+            k+=1;
 
         }
 
         int m = 7;
-        for (int j = 16; j < 24; j++) {
+        for (int j = 26; j <  39; j++) {
             String sym = "Trèfle";
 
             Pioche[j] = new Carte(sym, m);
@@ -45,17 +46,19 @@ public class Assistant_poker_LACOMBE_BARBERAN {
 
         }
         int z = 7;
-        for (int j = 24; j < 32; j++) {
+        for (int j =39; j <52; j++) {
             String sym = "Carreaux";
 
             Pioche[j] = new Carte(sym, z);
             z += 1;
 
         }
-        System.out.println(Pioche[0]);
+        System.out.println(Pioche[25]);
+        
+        
         Carte combiC[] = new Carte[7];
         ArrayList<Carte[]> liste_combi = new ArrayList<Carte[]>() ;
-
+/*/
         for (int i = 0; i < 30; i++) {
             
             for (int j = 0; j < 30; j++) {
@@ -80,6 +83,8 @@ public class Assistant_poker_LACOMBE_BARBERAN {
                                         combiC[4] = Pioche[m];
                                         combiC[5] = Pioche[n];
                                         combiC[6] = Pioche[p];
+                                        for(int c=0; c<liste_combi.size(); c++){
+                                   
                                         liste_combi.add(combiC); 
  System.out.println(liste_combi.size());
                                     }
@@ -91,6 +96,10 @@ public class Assistant_poker_LACOMBE_BARBERAN {
             }
         }
         System.out.println(liste_combi.size());
+       
     }
-
+        /*/
+    }
 }
+
+
