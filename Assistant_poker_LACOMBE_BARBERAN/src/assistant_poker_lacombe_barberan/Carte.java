@@ -22,6 +22,8 @@ public class Carte {
     public String toString(){
         String ph="Le rang de la carte est" +Rang+" le symbole est "+Symbole ;
         return ph; 
+        
+        
     }
     /*/
     public void InitPioche(){
