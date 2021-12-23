@@ -28,7 +28,7 @@ public class Carte implements java.lang.Comparable<Carte> {
     }
     @Override 
     public String toString(){
-        return "Carte{ couleur=" + Couleur + ", rang=" +"}";
+        return "Carte{ couleur=" + Symbole + ", rang="+ Rang +"}";
     }
         
       

@@ -6,6 +6,7 @@ package assistant_poker_lacombe_barberan;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -16,51 +17,28 @@ public class Assistant_poker_LACOMBE_BARBERAN {
     /**
      * @param args the command line arguments
      */
-    @SuppressWarnings("empty-statement")
+
     public static void main(String[] args) {
         // TODO code application logic here
+Carte carte1 = new Carte("Coeur",13); 
+Carte carte2 = new Carte("Pique",2); 
+Carte carte3 = new Carte("Pique",14); 
+Carte carte4 = new Carte("Carreaux",3); 
+Carte carte5 = new Carte("Tèfle",6);
+ArrayList<Carte> tab =new ArrayList<Carte>();
+tab.add(carte1); 
+      tab.add( carte2);
+      tab.add( carte3);
+      tab.add( carte4);
+      tab.add( carte5); 
 
-        Carte Pioche[] = new Carte[52];
-
-        int k = 2;
-        for (int j = 0; j <13; j++) {
-            String sym = "Coeur";
-
-            Pioche[j] = new Carte(sym, k);
-            k += 1;
-
-        }
-        k=2;
-        for (int j = 13; j < 26; j++) {
-            String sym = "Pique";
-
-            Pioche[j] = new Carte(sym, k);
-            k+=1;
-
-        }
-
-        k=2;
-        for (int j = 26; j <  39; j++) {
-            String sym = "Trèfle";
-
-            Pioche[j] = new Carte(sym, k);
-            k+= 1;
-
-        }
-        k=2;
-        for (int j =39; j <52; j++) {
-            String sym = "Carreaux";
-
-            Pioche[j] = new Carte(sym, k);
-            k += 1;
-
-        }
-        System.out.println(Pioche[25]);
-        
-        
-        Carte combiC[] = new Carte[7];
-        ArrayList<Carte[]> liste_combi = new ArrayList<Carte[]>() ;
-
+Collections.sort(tab);
+for(Carte carte : tab){
+    System.out.println(carte); 
+    Combinaison Cobi = new Combinaison(tab);
+    Cobi.Paire();
+    System.out.println(Cobi.Paire());
+}
 /*/
         for (int i = 0; i < 30; i++) {
             

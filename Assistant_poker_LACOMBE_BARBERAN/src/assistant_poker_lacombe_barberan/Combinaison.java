@@ -5,23 +5,29 @@
 package assistant_poker_lacombe_barberan;
 
 import java.lang.Math;
+import java.util.ArrayList;
 
 /**
  *
  * @author Baptiste
  */
 public class Combinaison {
+    ArrayList<Carte> tab= new ArrayList<Carte>();
 
+    public Combinaison(ArrayList<Carte> Combi) {
+        tab=Combi; 
+    }
+    
 // méthode paire avec tableuau d'indices de cartes TRIES en argument 
 // Il faut acceder a la au rang de la carte qui est de l'indice dans le tableau pour voir si deux rangs sont identiques 
-    public Double Paire(Carte tab[]) {
+    public Double Paire() {
         int cpt_carte_id = 0;
         int rang_paire = 0;
         for (int i = 0; i <= 3; i++) {
-            if (tab[i].Rang == tab[i + 1].Rang) {
+            if (tab.get(i).Rang == tab.get(i + 1).Rang) {
 
                 cpt_carte_id += 1;
-                rang_paire = tab[i].Rang;
+                rang_paire = tab.get(i).Rang;
             }
         }
         if (cpt_carte_id == 1) { //Si il y a bien qu'une paire qui est possible 
