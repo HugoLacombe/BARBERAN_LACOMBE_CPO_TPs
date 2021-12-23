@@ -9,7 +9,7 @@ package assistant_poker_lacombe_barberan;
  * @author 
  * 
  */
-public class Carte {
+public class Carte implements java.lang.Comparable<Carte> {
     String Couleur; 
     String Symbole; 
     int Rang; 
@@ -19,61 +19,17 @@ public class Carte {
         Symbole = sym;
         Rang=rang; 
     }
+    
+    @Override
+    public int compareTo (Carte cartec){
+        if (cartec.Rang > this.Rang) return -1;
+        if (cartec.Rang< this.Rang) return 1 ;
+        return 0;
+    }
+    @Override 
     public String toString(){
-        String ph="Le rang de la carte est" +Rang+" le symbole est "+Symbole ;
-        return ph; 
-        
-        
+        return "Carte{ couleur=" + Couleur + ", rang=" +"}";
     }
-    /*/
-    public void InitPioche(){
-        for(int i = 0; i<Pioche.length;i++){
-            for(int j=0; j<8;j++){
-              String  sym="Coeur";
-              for(int k=7; k<=14;k++){
-                Pioche[j]= new Carte(sym,j);  
-              
-             
-                
-                
-            }
-        }
-             for(int j=8; j<16;j++){
-              String  sym="Pique";
-              for(int k=7; k<=14;k++){
-                Pioche[j]= new Carte(sym,j);  
-              
-             
-                
-                
-            }
-        }
-              for(int j=16; j<24;j++){
-              String  sym="Trèfle";
-              for(int k=7; k<=14;k++){
-                Pioche[j]= new Carte(sym,j);  
-              
-             
-                
-                
-            }
-        }
-               for(int j=24; j<32;j++){
-              String  sym="Carreaux";
-              for(int k=7; k<=14;k++){
-                Pioche[j]= new Carte(sym,j);  
-              
-             
-                
-                
-            }
-        }
         
-        
-        
-        
-    }
-
-}
-/*/
+      
 }
