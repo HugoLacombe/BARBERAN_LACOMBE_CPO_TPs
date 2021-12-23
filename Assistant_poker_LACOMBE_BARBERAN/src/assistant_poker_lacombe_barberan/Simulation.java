@@ -4,6 +4,8 @@
  */
 package assistant_poker_lacombe_barberan;
 
+import java.util.Arrays;
+
 /**
  *
  * @author 33695
@@ -56,7 +58,44 @@ public void InitPioche(){
         k += 1;
 
     }
+}
+
+    public int parmi7(Carte tab[]){
+        Carte []combi_C = new Carte[5];
+        int mejor; 
+         for (int i = 0; i < 5; i++) {
+            
+            for (int j = i+1; j < 5; j++) {
+                 
+                for (int k = j+1; k < 5; k++) {
+                    
+                    for (int l = k+1; l < 5; l++) {
+                         
+                        for (int m = l+1; m < 5; m++) {
+                            
+                           combi_C[0]=tab[i]; 
+                           combi_C[1]=tab[j]; 
+                           combi_C[2]=tab[k]; 
+                           combi_C[3]=tab[l]; 
+                           combi_C[4]=tab[m]; 
+                           
+                           //scores(combi_C)
+                           
+                        }
+                    }
+                }
+            }
+         }
+         
+        
+        
+    return 1 ; 
+}
+                    
+static void débutPartie(){
     
 }
+
+ 
 
 }

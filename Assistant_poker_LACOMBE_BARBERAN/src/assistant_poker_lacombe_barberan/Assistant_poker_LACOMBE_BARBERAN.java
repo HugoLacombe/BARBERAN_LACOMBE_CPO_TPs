@@ -5,6 +5,7 @@
 package assistant_poker_lacombe_barberan;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Assistant_poker_LACOMBE_BARBERAN {
     /**
      * @param args the command line arguments
      */
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
         // TODO code application logic here
 
@@ -58,6 +60,7 @@ public class Assistant_poker_LACOMBE_BARBERAN {
         
         Carte combiC[] = new Carte[7];
         ArrayList<Carte[]> liste_combi = new ArrayList<Carte[]>() ;
+
 /*/
         for (int i = 0; i < 30; i++) {
             
@@ -98,8 +101,10 @@ public class Assistant_poker_LACOMBE_BARBERAN {
         System.out.println(liste_combi.size());
        
     }
-        /*/
-    }
+        /*/ 
+
+
+}
 }
 
 
