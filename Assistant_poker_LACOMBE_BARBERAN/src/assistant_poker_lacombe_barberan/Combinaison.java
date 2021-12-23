@@ -233,7 +233,7 @@ public Double QuinteF(Carte tab[]) {
                 rang_Quinte = tab[4].Rang;
                
 
-           return 9 * Math.pow(10, 10) + rang_Quinte * 100000000;
+           return 9 * Math.pow(10, 10) + rang_Quinte *  Math.pow(10, 8);
             }
         
         return 0.0; 
