@@ -62,7 +62,7 @@ public void InitPioche(){
 
     public int parmi7(Carte tab[]){
         Carte []combi_C = new Carte[5];
-        int mejor; 
+        int mejor=0; 
          for (int i = 0; i < 5; i++) {
             
             for (int j = i+1; j < 5; j++) {
@@ -79,7 +79,8 @@ public void InitPioche(){
                            combi_C[3]=tab[l]; 
                            combi_C[4]=tab[m]; 
                            
-                           //scores(combi_C)
+                           //if(mejor<Score(combi_C)){
+                           //mejorScore(combi_C)
                            
                         }
                     }
