@@ -60,10 +60,10 @@ public class Combinaison {
             }
 
             if (rang_paire1 > rang_paire2) {
-                return 3 * Math.pow(10, 10) + rang_paire1 * 100000000 + rang_paire2 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
+                return 3 * Math.pow(10, 10) + rang_paire1 *  Math.pow(10, 8) + rang_paire2 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
             }
             if (rang_paire2 < rang_paire1) {
-                return 3 * Math.pow(10, 10) + rang_paire2 * 100000000 + rang_paire1 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
+                return 3 * Math.pow(10, 10) + rang_paire2 *  Math.pow(10, 8) + rang_paire1 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
             }
 
         }
@@ -106,7 +106,7 @@ public class Combinaison {
             }
 
             
-            return 4 * Math.pow(10, 10) + rang_brelan * 100000000 + rang_c1 * Math.pow(10, 6) + rang_c2 * Math.pow(10, 4);
+            return 4 * Math.pow(10, 10) + rang_brelan *  Math.pow(10, 8) + rang_c1 * Math.pow(10, 6) + rang_c2 * Math.pow(10, 4);
             
             
 
@@ -126,7 +126,7 @@ public class Combinaison {
         }
 
        if (cpt_Suite ==1){
-           return 5 * Math.pow(10, 10) + rang_Suite * 100000000;
+           return 5 * Math.pow(10, 10) + rang_Suite *  Math.pow(10, 8);
     }
 
 return 0.0;
@@ -156,7 +156,7 @@ return 0.0;
         }
 
        if (cpt_Couleur ==1){
-            return 6 * Math.pow(10, 10) + rang_Couleur * 100000000 + rang_c1 * Math.pow(10, 6) + rang_c2 * Math.pow(10, 4)+ rang_c3 * Math.pow(10, 2)+ rang_c4;
+            return 6 * Math.pow(10, 10) + rang_Couleur *  Math.pow(10, 8)+ rang_c1 * Math.pow(10, 6) + rang_c2 * Math.pow(10, 4)+ rang_c3 * Math.pow(10, 2)+ rang_c4;
             }
 
 return 0.0;
@@ -191,7 +191,7 @@ return 0.0;
        
 //Si il y a bien que 2  paires qui est possible 
         if (paire==true  && brelan==true) {
-           return 7 * Math.pow(10, 10) + rang_brelan * 100000000 + rang_paire * Math.pow(10, 6) ;
+           return 7 * Math.pow(10, 10) + rang_brelan *  Math.pow(10, 8) + rang_paire * Math.pow(10, 6) ;
             }
         
         return 0.0; // pas de paire, ou on peut mieux faire comme combi. 
@@ -214,7 +214,7 @@ return 0.0;
             rang_solo=tab[0].Rang;
         }
        if (cpt_Carre ==1){
-           return 8 * Math.pow(10, 10) + rang_Carre * 100000000+rang_solo * Math.pow(10, 6);
+           return 8 * Math.pow(10, 10) + rang_Carre * Math.pow(10, 8)+rang_solo * Math.pow(10, 6);
     }
 
 return 0.0;
