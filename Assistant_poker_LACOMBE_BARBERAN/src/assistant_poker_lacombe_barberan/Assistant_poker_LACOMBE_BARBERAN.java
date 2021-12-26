@@ -21,24 +21,25 @@ public class Assistant_poker_LACOMBE_BARBERAN {
     public static void main(String[] args) {
         // TODO code application logic here
         Double result=0.0;
-Carte carte1 = new Carte("Coeur",10); 
-Carte carte2 = new Carte("Coeur",11); 
-Carte carte3 = new Carte("Coeur",12); 
-Carte carte4 = new Carte("Coeur",13); 
-Carte carte5 = new Carte("Coeur",9);
+        Simulation Sim1 = new Simulation(); 
+Carte carte1 = new Carte("Trèfle",7); 
+Carte carte2 = new Carte("Coeur",6); 
+Carte carte3 = new Carte("Tèfle",2); 
+Carte carte4 = new Carte("Pique",4); 
+Carte carte5 = new Carte("Carreaux",3);
+Carte carte6 = new Carte("Coeur", 3); 
+Carte carte7 = new Carte("Pique", 14); 
 ArrayList<Carte> tab =new ArrayList<Carte>();
 tab.add(carte1); 
       tab.add( carte2);
       tab.add( carte3);
       tab.add( carte4);
       tab.add( carte5); 
+      tab.add (carte6); 
+      tab.add(carte7);
 
 Collections.sort(tab);
-for(Carte carte : tab){
-    //System.out.println(carte); 
-    Combinaison Cobi = new Combinaison(tab);
-   result=Cobi.QuinteFR();
-} 
+result=Sim1.parmi7(tab);
 
     System.out.println(result);
 /*/

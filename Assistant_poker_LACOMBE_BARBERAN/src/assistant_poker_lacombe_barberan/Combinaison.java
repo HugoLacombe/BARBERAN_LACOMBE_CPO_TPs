@@ -246,5 +246,35 @@ public class Combinaison {
 
         return 0.0; // pas de paire, ou on peut mieux faire comme combi. 
     }
-
+    public Double Score(){
+        
+            if(QuinteFR()!=0.0){
+               return QuinteFR() ;
+            } 
+             if(QuinteF()!=0.0){
+               return QuinteF() ;
+            } 
+              if(Carre()!=0.0){
+               return Carre() ;
+            } 
+               if(Full()!=0.0){
+               return Full() ;
+            } 
+                if(Couleur()!=0.0){
+               return Couleur() ;
+            } 
+                 if(Suite()!=0.0){
+               return Suite() ;
+            } 
+                  if(Brelan()!=0.0){
+               return Brelan() ;
+            } 
+                   if(DoublePaire()!=0.0){
+               return DoublePaire() ;
+            } 
+                    if(Paire()!=0.0){
+               return Paire() ;
+            } 
+                    return (double) tab.get(tab.size()-1).Rang;
+    }
 }
