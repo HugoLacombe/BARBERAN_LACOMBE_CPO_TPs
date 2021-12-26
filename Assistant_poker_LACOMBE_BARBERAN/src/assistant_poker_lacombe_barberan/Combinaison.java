@@ -112,9 +112,13 @@ public class Combinaison {
                 }
 
             }
+            if(rang_c1>rang_c2){
 
             return 4 * Math.pow(10, 10) + rang_brelan * Math.pow(10, 8) + rang_c1 * Math.pow(10, 6) + rang_c2 * Math.pow(10, 4);
-
+            }
+            else {
+                return 4 * Math.pow(10, 10) + rang_brelan * Math.pow(10, 8) + rang_c2 * Math.pow(10, 6) + rang_c1 * Math.pow(10, 4);
+            }
         }
         return 0.0;
 

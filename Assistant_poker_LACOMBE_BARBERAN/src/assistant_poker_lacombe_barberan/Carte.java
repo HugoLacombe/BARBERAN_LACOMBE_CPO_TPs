@@ -14,9 +14,9 @@ public class Carte implements java.lang.Comparable<Carte> {
     String Symbole; 
     int Rang; 
     Carte [] Pioche = new Carte [32]; 
-    public Carte(String sym, int rang){
+    public Carte(String coul, int rang){
         
-        Symbole = sym;
+        Couleur = coul;
         Rang=rang; 
     }
     
