@@ -20,11 +20,12 @@ public class Assistant_poker_LACOMBE_BARBERAN {
 
     public static void main(String[] args) {
         // TODO code application logic here
-Carte carte1 = new Carte("Coeur",13); 
-Carte carte2 = new Carte("Pique",2); 
-Carte carte3 = new Carte("Pique",14); 
-Carte carte4 = new Carte("Carreaux",3); 
-Carte carte5 = new Carte("Tèfle",6);
+        Double result=0.0;
+Carte carte1 = new Carte("Coeur",8); 
+Carte carte2 = new Carte("Pique",8); 
+Carte carte3 = new Carte("Pique",9); 
+Carte carte4 = new Carte("Carreaux",2); 
+Carte carte5 = new Carte("Tèfle",9);
 ArrayList<Carte> tab =new ArrayList<Carte>();
 tab.add(carte1); 
       tab.add( carte2);
@@ -34,11 +35,12 @@ tab.add(carte1);
 
 Collections.sort(tab);
 for(Carte carte : tab){
-    System.out.println(carte); 
+    //System.out.println(carte); 
     Combinaison Cobi = new Combinaison(tab);
-    Cobi.Paire();
-    System.out.println(Cobi.Paire());
-}
+   result=Cobi.DoublePaire();
+} 
+
+    System.out.println(result);
 /*/
         for (int i = 0; i < 30; i++) {
             

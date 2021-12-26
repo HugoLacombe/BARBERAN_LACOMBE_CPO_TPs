@@ -39,36 +39,42 @@ public class Combinaison {
 
     //Fonction qui cherhce dans une tableau de 5 cartes triés dans l'ordre de rang 
     // si il y a deux paires 
-    public Double DoublePaire(Carte tab[]) {
+    public Double DoublePaire() {
         int cpt_carte_id = 0;
         int rang_paire1 = 0;
         int rang_paire2 = 0;
         int rang_solo = 0;
         for (int i = 0; i <= 3; i++) {
-            if (tab[i].Rang == tab[i + 1].Rang) {
+            if (tab.get(i).Rang == tab.get(i + 1).Rang) {
 
                 cpt_carte_id += 1;
+                
                 if (rang_paire1 == 0) {
 
-                    rang_paire1 = tab[i].Rang;
+                    rang_paire1 = tab.get(i).Rang;
                 } else {
-                    rang_paire2 = tab[i].Rang;
+                    rang_paire2 = tab.get(i).Rang;
                 }
             }
+            //System.out.println(cpt_carte_id);
         }
 
 //Si il y a bien que 2  paires qui est possible 
         if (cpt_carte_id == 2 && rang_paire1 != rang_paire2) {
+            System.out.println("Première carte rang : "+rang_paire1+" Deuxième paire : "+rang_paire2);
             for (int j = 0; j <= 3; j++) {
-                if (tab[j].Rang != rang_paire1 && tab[j].Rang != rang_paire2) {
-                    rang_solo = tab[j].Rang;
+                if (tab.get(j).Rang != rang_paire1 && tab.get(j).Rang != rang_paire2) {
+                    rang_solo = tab.get(j).Rang;
                 }
             }
+            System.out.println(rang_solo); 
 
             if (rang_paire1 > rang_paire2) {
+                
                 return 3 * Math.pow(10, 10) + rang_paire1 * Math.pow(10, 8) + rang_paire2 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
             }
-            if (rang_paire2 < rang_paire1) {
+            if (rang_paire2 > rang_paire1) {
+                
                 return 3 * Math.pow(10, 10) + rang_paire2 * Math.pow(10, 8) + rang_paire1 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
             }
 
@@ -76,17 +82,17 @@ public class Combinaison {
         return 0.0; // pas de paire, ou on peut mieux faire comme combi. 
     }
 
-    public Double Brelan(Carte tab[]) {
+    public Double Brelan() {
         int cpt_brelan = 0;
         int rang_brelan = 0;
         int rang_c1 = 0;
         int rang_c2 = 0;
 
         for (int i = 0; i <= 2; i++) {
-            if (tab[i].Rang == tab[i + 1].Rang && tab[i + 1].Rang == tab[i + 2].Rang) {
+            if (tab.get(i).Rang == tab.get(i + 1).Rang && tab.get(i + 1).Rang == tab.get(i + 2).Rang) {
 
                 cpt_brelan += 1;
-                rang_brelan = tab[i].Rang;
+                rang_brelan = tab.get(i).Rang;
 
             }
 
@@ -94,15 +100,15 @@ public class Combinaison {
 
         if (cpt_brelan == 1) {
             for (int j = 0; j <= 4; j++) {
-                if (tab[0].Rang == rang_brelan) {
-                    rang_c1 = tab[3].Rang;
-                    rang_c2 = tab[4].Rang;
-                } else if (tab[1].Rang == rang_brelan && tab[3].Rang == rang_brelan) {
-                    rang_c1 = tab[0].Rang;
-                    rang_c2 = tab[4].Rang;
-                } else if (tab[2].Rang == rang_brelan && tab[4].Rang == rang_brelan) {
-                    rang_c1 = tab[0].Rang;
-                    rang_c2 = tab[1].Rang;
+                if (tab.get(0).Rang == rang_brelan) {
+                    rang_c1 = tab.get(3).Rang;
+                    rang_c2 = tab.get(4).Rang;
+                } else if (tab.get(1).Rang == rang_brelan && tab.get(3).Rang == rang_brelan) {
+                    rang_c1 = tab.get(0).Rang;
+                    rang_c2 = tab.get(4).Rang;
+                } else if (tab.get(2).Rang == rang_brelan && tab.get(4).Rang == rang_brelan) {
+                    rang_c1 = tab.get(0).Rang;
+                    rang_c2 = tab.get(1).Rang;
                 }
 
             }
@@ -114,14 +120,14 @@ public class Combinaison {
 
     }
 
-    public Double Suite(Carte tab[]) {
+    public Double Suite() {
         int cpt_Suite = 0;
         int rang_Suite = 0;
 
-        if (tab[0].Rang + 1 == tab[1].Rang && tab[1].Rang + 1 == tab[2].Rang && tab[2].Rang + 1 == tab[3].Rang && tab[3].Rang + 1 == tab[4].Rang) {
+        if (tab.get(0).Rang + 1 == tab.get(1).Rang && tab.get(1).Rang + 1 == tab.get(2).Rang && tab.get(2).Rang + 1 == tab.get(3).Rang && tab.get(3).Rang + 1 == tab.get(4).Rang) {
 
             cpt_Suite += 1;
-            rang_Suite = tab[4].Rang;
+            rang_Suite = tab.get(4).Rang;
         }
 
         if (cpt_Suite == 1) {
@@ -132,7 +138,7 @@ public class Combinaison {
 
     }
 
-    public Double Couleur(Carte tab[]) {
+    public Double Couleur() {
         int cpt_Couleur = 0;
         int rang_Couleur = 0;
         int rang_c1 = 0;
@@ -140,14 +146,14 @@ public class Combinaison {
         int rang_c3 = 0;
         int rang_c4 = 0;
 
-        if (tab[0].Couleur == tab[1].Couleur && tab[1].Couleur == tab[2].Couleur && tab[2].Couleur == tab[3].Couleur && tab[3].Couleur == tab[4].Couleur) {
+        if (tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
 
             cpt_Couleur += 1;
-            rang_Couleur = tab[4].Rang;
-            rang_c1 = tab[3].Rang;
-            rang_c2 = tab[2].Rang;
-            rang_c3 = tab[1].Rang;
-            rang_c4 = tab[0].Rang;
+            rang_Couleur = tab.get(4).Rang;
+            rang_c1 = tab.get(3).Rang;
+            rang_c2 = tab.get(2).Rang;
+            rang_c3 = tab.get(1).Rang;
+            rang_c4 = tab.get(0).Rang;
 
         }
 
@@ -159,7 +165,7 @@ public class Combinaison {
 
     }
 
-    public Double Full(Carte tab[]) {
+    public Double Full() {
 
         int rang_paire = 0;
         int rang_brelan = 0;
@@ -167,19 +173,19 @@ public class Combinaison {
         boolean paire = false;
 
         for (int i = 0; i <= 2; i++) {
-            if (tab[i].Rang == tab[i + 1].Rang && tab[i + 1].Rang == tab[i + 2].Rang) {
+            if (tab.get(i).Rang == tab.get(i + 1).Rang && tab.get(i + 1).Rang == tab.get(i + 2).Rang) {
 
                 brelan = true;
-                rang_brelan = tab[i].Rang;
+                rang_brelan = tab.get(i).Rang;
 
             }
 
         }
         for (int j = 0; j <= 3; j++) {
-            if (tab[j].Rang == tab[j + 1].Rang && tab[j].Rang != rang_brelan) {
+            if (tab.get(j).Rang == tab.get(j + 1).Rang && tab.get(j).Rang != rang_brelan) {
 
                 paire = true;
-                rang_paire = tab[j].Rang;
+                rang_paire = tab.get(j).Rang;
             }
         }
 
@@ -191,19 +197,19 @@ public class Combinaison {
         return 0.0; // pas de paire, ou on peut mieux faire comme combi. 
     }
 
-    public Double Carre(Carte tab[]) {
+    public Double Carre() {
         int cpt_Carre = 0;
         int rang_Carre = 0;
         int rang_solo = 0;
-        if (tab[0].Rang == tab[1].Rang && tab[1].Rang == tab[2].Rang && tab[2].Rang == tab[3].Rang) {
+        if (tab.get(0).Rang == tab.get(1).Rang && tab.get(1).Rang == tab.get(2).Rang && tab.get(2).Rang == tab.get(3).Rang) {
 
             cpt_Carre += 1;
-            rang_Carre = tab[0].Rang;
-            rang_solo = tab[4].Rang;
-        } else if (tab[1].Rang == tab[2].Rang && tab[2].Rang == tab[3].Rang && tab[3].Rang == tab[4].Rang) {
+            rang_Carre = tab.get(0).Rang;
+            rang_solo = tab.get(4).Rang;
+        } else if (tab.get(1).Rang == tab.get(2).Rang && tab.get(2).Rang == tab.get(3).Rang && tab.get(3).Rang == tab.get(4).Rang) {
             cpt_Carre += 1;
-            rang_Carre = tab[1].Rang;
-            rang_solo = tab[0].Rang;
+            rang_Carre = tab.get(1).Rang;
+            rang_solo = tab.get(0).Rang;
         }
         if (cpt_Carre == 1) {
             return 8 * Math.pow(10, 10) + rang_Carre * Math.pow(10, 8) + rang_solo * Math.pow(10, 6);
@@ -213,13 +219,13 @@ public class Combinaison {
 
     }
 
-    public Double QuinteF(Carte tab[]) {
+    public Double QuinteF() {
 
         int rang_Quinte = 0;
 
-        if (tab[0].Rang + 1 == tab[1].Rang && tab[1].Rang + 1 == tab[2].Rang && tab[2].Rang + 1 == tab[3].Rang && tab[3].Rang + 1 == tab[4].Rang && tab[0].Couleur == tab[1].Couleur && tab[1].Couleur == tab[2].Couleur && tab[2].Couleur == tab[3].Couleur && tab[3].Couleur == tab[4].Couleur) {
+        if (tab.get(0).Rang + 1 == tab.get(1).Rang && tab.get(1).Rang + 1 == tab.get(2).Rang && tab.get(2).Rang + 1 == tab.get(3).Rang && tab.get(3).Rang + 1 == tab.get(4).Rang && tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
 
-            rang_Quinte = tab[4].Rang;
+            rang_Quinte = tab.get(4).Rang;
 
             return 9 * Math.pow(10, 10) + rang_Quinte * Math.pow(10, 8);
         }
@@ -227,9 +233,9 @@ public class Combinaison {
         return 0.0;
     }
 
-    public Double QuinteFR(Carte tab[]) {
+    public Double QuinteFR() {
 
-        if (tab[0].Rang == 10 && tab[1].Rang == 11 && tab[2].Rang == 12 && tab[3].Rang == 13 && tab[4].Rang == 14 && tab[0].Couleur == tab[1].Couleur && tab[1].Couleur == tab[2].Couleur && tab[2].Couleur == tab[3].Couleur && tab[3].Couleur == tab[4].Couleur) {
+        if (tab.get(0).Rang == 10 && tab.get(1).Rang == 11 && tab.get(2).Rang == 12 && tab.get(3).Rang == 13 && tab.get(4).Rang == 14 && tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
 
             return 10 * Math.pow(10, 10);
         }
