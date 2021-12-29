@@ -133,8 +133,12 @@ public class Simulation {
             }
             
         }
+        Carte Carte1 = new Carte(Couleurc1,Rangc1) ;
+        Carte Carte2 = new Carte(Couleurc2,  Rangc2); 
+       
         Pioche.remove(indice2); 
         Pioche.remove(indice1); 
+        return Carte 1 ;  Carte2 ; 
     }
 
     public void AvantFlop(ArrayList<Carte> cartes_j) {
