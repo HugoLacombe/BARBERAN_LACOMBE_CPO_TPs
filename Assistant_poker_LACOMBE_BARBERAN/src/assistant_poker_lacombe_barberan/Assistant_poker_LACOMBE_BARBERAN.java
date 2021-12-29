@@ -22,7 +22,7 @@ public class Assistant_poker_LACOMBE_BARBERAN {
         // TODO code application logic here
         Double result=0.0;
         Simulation Sim1 = new Simulation(); 
-Carte carte1 = new Carte("Trèfle",1); 
+/*/Carte carte1 = new Carte("Trèfle",1); 
 Carte carte2 = new Carte("Coeur",2); 
 Carte carte3 = new Carte("Tèfle",3); 
 Carte carte4 = new Carte("Pique",4); 
@@ -42,6 +42,10 @@ Collections.sort(tab);
 result=Sim1.parmi7(tab);
 
     System.out.println(result);
+        /*/
+Sim1.InitPioche();
+Sim1.carteduJoeur();
+System.out.println(Sim1.Pioche.size());
 /*/
         for (int i = 0; i < 30; i++) {
             
