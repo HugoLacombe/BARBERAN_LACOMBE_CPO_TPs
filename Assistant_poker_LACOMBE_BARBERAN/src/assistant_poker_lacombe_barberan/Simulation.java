@@ -68,22 +68,23 @@ public class Simulation {
         // faut modifier ça doit un truc de combinaionson
         double mejor = 0;
         int cpt = 0;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
 
-            for (int j = 0; j < 5; j++) {
+            for (int j = i+1; j < 7; j++) {
 
-                for (int k = 0; k < 5; k++) {
+                for (int k = j+1; k < 7; k++) {
 
-                    for (int l = 0; l < 5; l++) {
+                    for (int l = k+1; l < 7; l++) {
 
-                        for (int m = l + 1; m < 5; m++) {
-                            System.out.println(cpt);
+                        for (int m = l + 1; m < 7; m++) {
+                            
                             combi_C.tab.set(0, tab.get(i));
                             combi_C.tab.set(1, tab.get(j));
                             combi_C.tab.set(2, tab.get(k));
                             combi_C.tab.set(3, tab.get(l));
                             combi_C.tab.set(4, tab.get(m));
                             Collections.sort(combi_C.tab);
+                            cpt += 1;
                             if (mejor < combi_C.Score()) {
                                 for (int z = 0; z < combi_C.tab.size(); z++) {
                                     System.out.println(combi_C.tab.get(z));
@@ -92,13 +93,14 @@ public class Simulation {
                                 mejor = combi_C.Score();
 
                             }
-                            cpt += 1;
+                        
                         }
                     }
                 }
             }
 
         }
+        System.out.println(cpt); 
         return mejor;
     }
 

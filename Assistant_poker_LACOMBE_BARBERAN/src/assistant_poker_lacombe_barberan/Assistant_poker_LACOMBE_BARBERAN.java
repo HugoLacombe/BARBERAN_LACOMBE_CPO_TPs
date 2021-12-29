@@ -22,12 +22,12 @@ public class Assistant_poker_LACOMBE_BARBERAN {
         // TODO code application logic here
         Double result=0.0;
         Simulation Sim1 = new Simulation(); 
-Carte carte1 = new Carte("Trèfle",7); 
-Carte carte2 = new Carte("Coeur",6); 
-Carte carte3 = new Carte("Tèfle",2); 
+Carte carte1 = new Carte("Trèfle",1); 
+Carte carte2 = new Carte("Coeur",2); 
+Carte carte3 = new Carte("Tèfle",3); 
 Carte carte4 = new Carte("Pique",4); 
-Carte carte5 = new Carte("Carreaux",3);
-Carte carte6 = new Carte("Coeur", 3); 
+Carte carte5 = new Carte("Carreaux",5);
+Carte carte6 = new Carte("Coeur", 14); 
 Carte carte7 = new Carte("Pique", 14); 
 ArrayList<Carte> tab =new ArrayList<Carte>();
 tab.add(carte1); 
