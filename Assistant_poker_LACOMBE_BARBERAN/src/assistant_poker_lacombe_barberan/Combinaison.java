@@ -19,7 +19,7 @@ public class Combinaison {
     }
     
 // méthode paire avec tableuau d'indices de cartes TRIES en argument 
-// Il faut acceder a la au rang de la carte qui est de l'indice dans le tableau pour voir si deux rangs sont identiques 
+// Il faut acceder au rang de la carte qui est l'indice dans le tableau pour voir si deux rangs sont identiques 
     public Double Paire() {
         int cpt_carte_id = 0;
         int rang_paire = 0;

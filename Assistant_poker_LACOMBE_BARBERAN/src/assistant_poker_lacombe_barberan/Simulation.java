@@ -163,7 +163,7 @@ public class Simulation {
     }
 /*/
      
-    public void AvantFlop(ArrayList<Carte> cartes_j) {
+    public void AvantFlop() {
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;

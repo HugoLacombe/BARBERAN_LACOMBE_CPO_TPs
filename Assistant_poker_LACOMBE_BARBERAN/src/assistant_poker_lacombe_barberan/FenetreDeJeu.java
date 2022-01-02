@@ -15,6 +15,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
      */
     public FenetreDeJeu() {
         initComponents();
+        Simulation Sim= new Simulation ();
+        Sim.InitPioche();
+        Sim.AvantFlop();
     }
 
     /**
