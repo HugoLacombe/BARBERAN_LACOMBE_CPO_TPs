@@ -71,7 +71,7 @@ public class Simulation {
         tab1.add(null);
         Combinaison combi_C = new Combinaison(tab1);
         // faut modifier ça doit un truc de combinaionson
-        double mejor = 0;
+        double mejor = 0.0;
         int cpt = 0;
         for (int i = 0; i < 7; i++) {
 
@@ -91,10 +91,8 @@ public class Simulation {
                             Collections.sort(combi_C.tab);
                             cpt += 1;
                             if (mejor < combi_C.Score()) {
-                                for (int z = 0; z < combi_C.tab.size(); z++) {
-                                    System.out.println(combi_C.tab.get(z));
-                                }
-                                System.out.println("Le meilleur score atteint : " + mejor);
+                               
+                               // System.out.println("Le meilleur score atteint : " + mejor);
                                 mejor = combi_C.Score();
 
                             }
@@ -105,11 +103,11 @@ public class Simulation {
             }
 
         }
-        System.out.println(cpt);
+        //System.out.println(cpt);
         return mejor;
     }
     
-    public Carte carteduJoeur1(){
+    public Carte carteduJoueur1(){
         int indice1=0;
        
         
@@ -163,25 +161,68 @@ public class Simulation {
     }
 /*/
      
-    public void AvantFlop(ArrayList<Carte> cartes_j) {
+    public void AvantFlop() {
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
+        double cpt=0.00;
+        ArrayList<Carte> combic_ad = new ArrayList<Carte>();
+        ArrayList<Carte> combic_jo = new ArrayList<Carte>();
         
-        for (int i = 0; i < 52; i++) {
+        for(int i=0; i<7;i++){
+            combic_ad.add(null); 
+            combic_jo.add(null);
+        }
+         Carte Carte1J = new Carte(null,0);
+         Carte1J=  carteduJoueur1();
+         Carte Carte2J = new Carte(null,0); 
+         Carte2J = carteduJoueur1();
+         combic_jo.set(0,Carte1J);
+         combic_jo.set(1,Carte2J);
+         
+         
+        for (int i = 0; i < 50; i++) {
 
-            for (int j = i+1; j < 52; j++) {
+            for (int j = i+1; j < 50; j++) {
 
-                for (int k = 0; k < 52; k++) {
+                for (int k = 0; k < 50; k++) {
 
-                    for (int l = k + 1; l < 52; l++) {
+                    for (int l = k + 1; l < 50; l++) {
 
-                        for (int m = l + 1; m < 52; m++) {
+                        for (int m = l + 1; m < 50; m++) {
                         
-                            for (int n = m + 1; n < 52; n++) {
+                            for (int n = m + 1; n < 50; n++) {
                                 
-                                for (int o = n + 1; o < 52; o++) {
-
+                                for (int o = n + 1; o < 50; o++) {
+                                    
+                                    combic_ad.set(0,Pioche.get(i));
+                                    combic_ad.set(1,Pioche.get(j));
+                                    combic_ad.set(2,Pioche.get(k));
+                                    combic_ad.set(3,Pioche.get(l));
+                                    combic_ad.set(4,Pioche.get(m));
+                                    combic_ad.set(5,Pioche.get(n));
+                                    combic_ad.set(6,Pioche.get(o));
+                                    
+                                    combic_jo.set(2,Pioche.get(k));
+                                    combic_jo.set(3,Pioche.get(l));
+                                    combic_jo.set(4,Pioche.get(m));
+                                    combic_jo.set(5,Pioche.get(n));
+                                    combic_jo.set(6,Pioche.get(o));
+                                    
+                                    double scorec_jo=parmi7(combic_jo); 
+                                    double scorec_ad=parmi7(combic_ad);
+                                    
+                                    if(scorec_jo>scorec_ad){
+                                        Vict+=1.0; 
+                                    }
+                                    if(scorec_jo<scorec_ad){
+                                        Def+=1.0;
+                                    }
+                                    if(scorec_jo==scorec_ad){
+                                        Egal+=1.0; 
+                                    }
+                                    cpt+=1.0;
+                                    System.out.println(cpt);
                                 }
 
                             }
@@ -190,7 +231,11 @@ public class Simulation {
                 }
             }
         }
-
+        Vict=(Vict/cpt)*100;
+        Egal=(Egal/cpt)*100; 
+        Def=(Def/cpt)*100; 
+        
+        
     }
 
 }

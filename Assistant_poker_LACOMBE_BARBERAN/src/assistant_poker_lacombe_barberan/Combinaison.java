@@ -61,13 +61,13 @@ public class Combinaison {
 
 //Si il y a bien que 2  paires qui est possible 
         if (cpt_carte_id == 2 && rang_paire1 != rang_paire2) {
-            System.out.println("Première carte rang : "+rang_paire1+" Deuxième paire : "+rang_paire2);
+          //  System.out.println("Première carte rang : "+rang_paire1+" Deuxième paire : "+rang_paire2);
             for (int j = 0; j <= 3; j++) {
                 if (tab.get(j).Rang != rang_paire1 && tab.get(j).Rang != rang_paire2) {
                     rang_solo = tab.get(j).Rang;
                 }
             }
-            System.out.println(rang_solo); 
+       //     System.out.println(rang_solo); 
 
             if (rang_paire1 > rang_paire2) {
                 
