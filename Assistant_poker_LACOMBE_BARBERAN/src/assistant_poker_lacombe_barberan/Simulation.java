@@ -43,7 +43,7 @@ public class Simulation {
         k = 2;
         for (int j = 26;
                 j < 39; j++) {
-            String sym = "Trèfle";
+            String sym = "Trefle";
 
             Pioche.add (new Carte(sym, k));
             k += 1;
@@ -53,7 +53,7 @@ public class Simulation {
         for (int j = 39;
                 j
                 < 52; j++) {
-            String sym = "Carreaux";
+            String sym = "Carreau";
 
             Pioche.add(new Carte(sym, k));
             k += 1;
@@ -107,61 +107,28 @@ public class Simulation {
         return mejor;
     }
     
-    public Carte carteduJoueur1(){
+    public Carte carteduJoueur1(int Rang, String Couleur){ // crée une carte pour la main du joueur et l'enleve de la pioche  
         int indice1=0;
        
         
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Saissisez la couleur de votre première carte : ");
-        String Couleurc1= sc.nextLine();
-        System.out.println("Saissisez le rang de votre première carte : ");
-        int Rangc1 = sc.nextInt();
-        
-        
         for(int i = 0 ; i<Pioche.size();i++){
-            if(Couleurc1 == Pioche.get(i).Couleur && Rangc1 == Pioche.get(i).Rang){
+            if(Couleur == Pioche.get(i).Couleur && Rang == Pioche.get(i).Rang){
                 indice1=i; 
             }
             
-            
+     
         }
-        Carte Carte1 = new Carte(Couleurc1,Rangc1) ;
+        Carte Carte1 = new Carte(Couleur,Rang) ;
 
        
  
         Pioche.remove(indice1); 
         return Carte1;
     }
-/*/
-     public Carte carteduJoeur2(){
-     
-        int indice2=0; 
-        
-        Scanner sc = new Scanner(System.in);
-         
-        
-        System.out.println("Saissisez la couleur de votre deuxième carte : ");
-         String Couleurc2= sc.nextLine();
-          System.out.println("Saissisez le rang de votre deuxième carte : ");
-         int Rangc2 = sc.nextInt();
-        for(int i = 0 ; i<Pioche.size();i++){
-            
-            if(Couleurc2 == Pioche.get(i).Couleur && Rangc2 == Pioche.get(i).Rang){
-                indice2=i; 
-            }
-            
-        }
     
-        Carte Carte2 = new Carte(Couleurc2,  Rangc2); 
-       
-        Pioche.remove(indice2); 
+    
      
-        return  Carte2 ; 
-    }
-/*/
-     
-    public void AvantFlop() {
+    public void AvantFlop(int rg1, int rg2, String couleur1,  String couleur2) {
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
@@ -174,9 +141,9 @@ public class Simulation {
             combic_jo.add(null);
         }
          Carte Carte1J = new Carte(null,0);
-         Carte1J=  carteduJoueur1();
+         Carte1J=  carteduJoueur1(rg1,couleur1);
          Carte Carte2J = new Carte(null,0); 
-         Carte2J = carteduJoueur1();
+         Carte2J = carteduJoueur1(rg2,couleur2);
          combic_jo.set(0,Carte1J);
          combic_jo.set(1,Carte2J);
          
@@ -222,7 +189,7 @@ public class Simulation {
                                         Egal+=1.0; 
                                     }
                                     cpt+=1.0;
-                                    System.out.println(cpt);
+                                   
                                 }
 
                             }
