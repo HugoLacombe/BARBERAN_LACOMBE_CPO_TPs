@@ -284,8 +284,6 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 14)); // NOI18N
         jLabel12.setText("Couleur de la carte 2");
 
-        RG1.setText("Ici");
-
         jLabel13.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 14)); // NOI18N
         jLabel13.setText("Veuillez écricre une des 4 propositions pour\n les couleurs avec l'orthographe exact :\n\n- Pique  - Trefle   - Carreau  - Coeur");
 
@@ -388,10 +386,11 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         Sim.InitPioche();
         int rgcarte1 = 0;
         int rgcarte2 = 0;
-        
-      
-          rgcarte1 =  Integer.parseInt(RG1.getText());
-          rgcarte2 =  Integer.parseInt(RG2.getText());
+        if(RG1.getText()=="Ici"){
+            System.out.println("NTM");
+        }
+          //rgcarte1 =  Integer.parseInt(RG1.getText());
+          //rgcarte2 =  Integer.parseInt(RG2.getText());
         
         //Sim.AvantFlop(rgcarte1, rgcarte2, Couleur1.getText(), Couleur2.getText());
        

@@ -224,7 +224,7 @@ public class Combinaison {
     }
 
     public Double QuinteF() {
-
+// Quinte Flush => Suite avec cartes de la meme couleur 
         int rang_Quinte = 0;
 
         if (tab.get(0).Rang + 1 == tab.get(1).Rang && tab.get(1).Rang + 1 == tab.get(2).Rang && tab.get(2).Rang + 1 == tab.get(3).Rang && tab.get(3).Rang + 1 == tab.get(4).Rang && tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
@@ -238,7 +238,7 @@ public class Combinaison {
     }
 
     public Double QuinteFR() {
-
+// // Quinte Flush Royale => Suite avex cartes qui commence à partir de 10 de la meme couleur 
         if (tab.get(0).Rang == 10 && tab.get(1).Rang == 11 && tab.get(2).Rang == 12 && tab.get(3).Rang == 13 && tab.get(4).Rang == 14 && tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
 
             return 10 * Math.pow(10, 10);
@@ -247,7 +247,9 @@ public class Combinaison {
         return 0.0; // pas de paire, ou on peut mieux faire comme combi. 
     }
     public Double Score(){
-        
+        //Cette méthode appelle toutes les autres méthodes qui testents les combinaisons,
+        // l'odre et les conditions de cette manière permet de savoir le meilleure score obtenu
+        // par une combinaison de 5 cartes. 
             if(QuinteFR()!=0.0){
                return QuinteFR() ;
             } 
