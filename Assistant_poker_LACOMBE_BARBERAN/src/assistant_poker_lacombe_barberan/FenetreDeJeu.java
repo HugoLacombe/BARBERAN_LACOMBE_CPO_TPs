@@ -17,19 +17,25 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         
         initComponents();
         Simulation Sim = new Simulation();
+    
         Sim.InitPioche();
         int rgcarte1 = 0;
         int rgcarte2 = 0;
+        
         while (RG1.getText() == null && RG2.getText() == null && rgcarte1 == 0 && rgcarte2 == 0) {
             rgcarte1 = Integer.parseInt(RG1.getText());
 
             rgcarte2 = Integer.parseInt(RG2.getText());
 
         }
-        Sim.AvantFlop(rgcarte1, rgcarte2, Couleur1.getText(), Couleur2.getText());
+        
+        //Sim.AvantFlop(rgcarte1, rgcarte2, Couleur1.getText(), Couleur2.getText());
         JoueurPourcent.setText(Sim .Vict + " %");
         equality.setText(Sim.Egal + " %");
         AdversairePourcent.setText(Sim.Def + " %");
+         
+                
+            
     }
 
     /**
@@ -53,6 +59,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         equality = new javax.swing.JLabel();
+        Sim_avflop = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -195,34 +202,48 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        Sim_avflop.setText("Simulation");
+        Sim_avflop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sim_avflopActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Sim_avflop)
+                        .addGap(318, 318, 318)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(114, 114, 114)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(3, 3, 3)
+                .addComponent(Sim_avflop)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 1040, 360));
@@ -263,13 +284,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 14)); // NOI18N
         jLabel12.setText("Couleur de la carte 2");
 
-        RG1.setText("jTextField1");
-
-        RG2.setText("jTextField1");
-
-        Couleur1.setText("jTextField1");
-
-        Couleur2.setText("jTextField1");
+        RG1.setText("Ici");
 
         jLabel13.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 14)); // NOI18N
         jLabel13.setText("Veuillez écricre une des 4 propositions pour\n les couleurs avec l'orthographe exact :\n\n- Pique  - Trefle   - Carreau  - Coeur");
@@ -325,7 +340,6 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
@@ -366,6 +380,28 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void Sim_avflopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sim_avflopActionPerformed
+        // TODO add your handling code here:
+          Simulation Sim = new Simulation();
+     System.out.println("bouton appuyé"); 
+        Sim.InitPioche();
+        int rgcarte1 = 0;
+        int rgcarte2 = 0;
+        
+      
+          rgcarte1 =  Integer.parseInt(RG1.getText());
+          rgcarte2 =  Integer.parseInt(RG2.getText());
+        
+        //Sim.AvantFlop(rgcarte1, rgcarte2, Couleur1.getText(), Couleur2.getText());
+       
+      //  JoueurPourcent.setText(Sim .Vict + " %");
+        //equality.setText(Sim.Egal + " %");
+        //AdversairePourcent.setText(Sim.Def + " %");
+       
+             System.out.println(rgcarte1); 
+          
+    }//GEN-LAST:event_Sim_avflopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,6 +446,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel JoueurPourcent;
     private javax.swing.JTextField RG1;
     private javax.swing.JTextField RG2;
+    private javax.swing.JButton Sim_avflop;
     private javax.swing.JTextField c_carte2;
     private javax.swing.JLabel equality;
     private javax.swing.JButton jButton4;
