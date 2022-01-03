@@ -15,13 +15,14 @@ import java.util.Scanner;
  */
 public class Simulation {
 
-    double Vict;
-    double Def;
-    double Egal;
+    double Vict; // poucentage de chance de victoire du joueur
+    double Def; // " " défaite " "
+    double Egal; // " " égalité 
 
     ArrayList<Carte> Pioche = new ArrayList<Carte>();
 
     public void InitPioche() {
+        // cette méthode permet de créer la pioche avec les 52 cartes 
         int k = 2;
         for (int j = 0; j < 13; j++) {
             String sym = "Coeur";
@@ -62,17 +63,20 @@ public class Simulation {
     }
 
     public double parmi7(ArrayList<Carte> tab) {
+        // Cette fonction permet de faire toutes les combinaisons possibles 
+        // de 5 cartes à partir de 7 
+        // elle prend en argument un liste de 7 cartes et renvoie le score de la meilleure combinaisons de 5 cartes
         ArrayList<Carte> tab1 = new ArrayList<Carte>();
-
+// initialisation d'une arraylist
         tab1.add(null);
         tab1.add(null);
         tab1.add(null);
         tab1.add(null);
         tab1.add(null);
-        Combinaison combi_C = new Combinaison(tab1);
+        Combinaison combi_C = new Combinaison(tab1); // création d'une combinaison à partir de l'arrayList
         // faut modifier ça doit un truc de combinaionson
-        double mejor = 0.0;
-        int cpt = 0;
+        double mejor = 0.0; // meilleur score courant 
+        // 5 boucles qui permettent de générer les combinaisons 
         for (int i = 0; i < 7; i++) {
 
             for (int j = i + 1; j < 7; j++) {
@@ -82,17 +86,18 @@ public class Simulation {
                     for (int l = k + 1; l < 7; l++) {
 
                         for (int m = l + 1; m < 7; m++) {
-
+                            
                             combi_C.tab.set(0, tab.get(i));
                             combi_C.tab.set(1, tab.get(j));
                             combi_C.tab.set(2, tab.get(k));
                             combi_C.tab.set(3, tab.get(l));
                             combi_C.tab.set(4, tab.get(m));
-                            Collections.sort(combi_C.tab);
-                            cpt += 1;
+                            Collections.sort(combi_C.tab); // on trie la liste
+                           
+                            // test pour savoir le score de la meilleure combinaison
                             if (mejor < combi_C.Score()) {
 
-                                // System.out.println("Le meilleur score atteint : " + mejor);
+                               
                                 mejor = combi_C.Score();
 
                             }
@@ -103,26 +108,26 @@ public class Simulation {
             }
 
         }
-        //System.out.println(cpt);
+        
         return mejor;
     }
 
-    public Carte carteduJoueur1(int Rang, String Couleur) { // crée une carte pour la main du joueur et l'enleve de la pioche  
+    public Carte retirer_cartePioche(int Rang, String Couleur) { // crée une carte l'enleve de la pioche  
         int indice1 = 0;
 
         for (int i = 0; i < Pioche.size(); i++) {
-            if (Couleur == Pioche.get(i).Couleur && Rang == Pioche.get(i).Rang) {
+            if (Couleur == Pioche.get(i).Couleur && Rang == Pioche.get(i).Rang) { // cherhche la carte qui correspond aux attributs données
                 indice1 = i;
             }
 
         }
         Carte Carte1 = new Carte(Couleur, Rang);
 
-        Pioche.remove(indice1);
-        return Carte1;
+        Pioche.remove(indice1); // retire la carte de la pioche
+        return Carte1; // renvoie une nouvelle carte qui possède les m^mes attibuts la précédente
     }
 
-    public void AvantFlop(int rg1, int rg2, String couleur1, String couleur2) {
+    public void AvantFlop(int rg1, int rg2, String couleur1, String couleur2) { // simulation avant le flop
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
@@ -135,12 +140,12 @@ public class Simulation {
             combic_jo.add(null);
         }
         Carte Carte1J = new Carte(null, 0);
-        Carte1J = carteduJoueur1(rg1, couleur1);
+        Carte1J = retirer_cartePioche(rg1, couleur1);
         Carte Carte2J = new Carte(null, 0);
-        Carte2J = carteduJoueur1(rg2, couleur2);
+        Carte2J = retirer_cartePioche(rg2, couleur2);
         combic_jo.set(0, Carte1J);
         combic_jo.set(1, Carte2J);
-
+// on cherhce l'ensemble des combinaisons de 7 parmi 50 cartes soient 99 884 400 combinaisons 
         for (int i = 0; i < 50; i++) {
 
             for (int j = i + 1; j < 50; j++) {
@@ -154,7 +159,8 @@ public class Simulation {
                             for (int n = m + 1; n < 50; n++) {
 
                                 for (int o = n + 1; o < 50; o++) {
-
+                                    
+                                    // ici on utilisie les objets combic_ad et combic_jo pour leur affecter les différentes cartes pour faire les combinaisosns de 7 cartes
                                     combic_ad.set(0, Pioche.get(i));
                                     combic_ad.set(1, Pioche.get(j));
                                     combic_ad.set(2, Pioche.get(k));
@@ -168,11 +174,13 @@ public class Simulation {
                                     combic_jo.set(4, Pioche.get(m));
                                     combic_jo.set(5, Pioche.get(n));
                                     combic_jo.set(6, Pioche.get(o));
-
+                                    
+                                    
+                                    //cherche parm la combinaison de 7 cartes la meilleur combinaison de 5 cartes 
                                     double scorec_jo = parmi7(combic_jo);
-                                    double scorec_ad = parmi7(combic_ad);
+                                    double scorec_ad = parmi7(combic_ad); 
 
-                                    if (scorec_jo > scorec_ad) {
+                                    if (scorec_jo > scorec_ad) { // compare les scores des deux meilleurs combinaisons 
                                         Vict += 1.0;
                                     }
                                     if (scorec_jo < scorec_ad) {
@@ -191,13 +199,14 @@ public class Simulation {
                 }
             }
         }
-        Vict = (Vict / cpt) * 100;
+        Vict = (Vict / cpt) * 100; // modifie les attributs de la simulation 
         Egal = (Egal / cpt) * 100;
         Def = (Def / cpt) * 100;
 
     }
 
     public void AvantTurn(int rg1, int rg2, String couleur1, String couleur2, int rg3, int rg4, String couleur3, String couleur4, int rg5, String couleur5) {
+     // Meme principe que AvantFlop, juste à ce stade nous connaissons 5 cartes, 3 cartes supplémentaires sur la table ainsi nous prenons leur rang et leur couleur en argument
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
@@ -212,13 +221,15 @@ public class Simulation {
         Carte Carte1T = new Carte(null, 0);
         Carte Carte2T = new Carte(null, 0);
         Carte Carte3T = new Carte(null, 0);
-        Carte1T = carteduJoueur1(rg3, couleur3);
-        Carte2T = carteduJoueur1(rg4, couleur4);
-        Carte3T = carteduJoueur1(rg5, couleur5);
+        // on retire les cartes connues de la pioche 
+        Carte1T = retirer_cartePioche(rg3, couleur3);
+        Carte2T = retirer_cartePioche(rg4, couleur4);
+        Carte3T = retirer_cartePioche(rg5, couleur5);
         Carte Carte1J = new Carte(null, 0);
-        Carte1J = carteduJoueur1(rg1, couleur1);
+        Carte1J = retirer_cartePioche(rg1, couleur1);
         Carte Carte2J = new Carte(null, 0);
-        Carte2J = carteduJoueur1(rg2, couleur2);
+        Carte2J = retirer_cartePioche(rg2, couleur2);
+        // on connait déjà les 3 cartes sur la table et les cartes du joueurs !
         combic_jo.set(0, Carte1J);
         combic_jo.set(1, Carte2J);
         combic_jo.set(2, Carte1T);
@@ -228,7 +239,7 @@ public class Simulation {
         combic_ad.set(2, Carte1T);
         combic_ad.set(3, Carte2T);
         combic_ad.set(4, Carte3T);
-
+        // 4 boucles pour les 4 cartes encore inconnues 2 cartes du joeurs adverses et 2 cartes sur la table 
         for (int i = 0; i < Pioche.size(); i++) {
 
             for (int j = i + 1; j < Pioche.size(); j++) {
@@ -270,6 +281,7 @@ public class Simulation {
     }
 
     public void AvantRiver(int rg1, int rg2, String couleur1, String couleur2, int rg3, int rg4, String couleur3, String couleur4, int rg5, String couleur5, int rg6, String couleur6) {
+       // Meme principe que AvantTurn, juste à ce stade nous connaissons  6 cartes, 1  supplémentaires sur la table ainsi nous prenons leur rang et leur couleur en argument
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
@@ -285,14 +297,14 @@ public class Simulation {
         Carte Carte2T = new Carte(null, 0);
         Carte Carte3T = new Carte(null, 0);
         Carte Carte4T = new Carte(null, 0);
-        Carte1T = carteduJoueur1(rg3, couleur3);
-        Carte2T = carteduJoueur1(rg4, couleur4);
-        Carte3T = carteduJoueur1(rg5, couleur5);
-        Carte4T = carteduJoueur1(rg6, couleur6);
+        Carte1T = retirer_cartePioche(rg3, couleur3);
+        Carte2T = retirer_cartePioche(rg4, couleur4);
+        Carte3T = retirer_cartePioche(rg5, couleur5);
+        Carte4T = retirer_cartePioche(rg6, couleur6);
         Carte Carte1J = new Carte(null, 0);
-        Carte1J = carteduJoueur1(rg1, couleur1);
+        Carte1J = retirer_cartePioche(rg1, couleur1);
         Carte Carte2J = new Carte(null, 0);
-        Carte2J = carteduJoueur1(rg2, couleur2);
+        Carte2J = retirer_cartePioche(rg2, couleur2);
         combic_jo.set(0, Carte1J);
         combic_jo.set(1, Carte2J);
         combic_jo.set(2, Carte1T);
@@ -357,15 +369,15 @@ public class Simulation {
         Carte Carte3T = new Carte(null, 0);
         Carte Carte4T = new Carte(null, 0);
         Carte Carte5T = new Carte(null, 0);
-        Carte1T = carteduJoueur1(rg3, couleur3);
-        Carte2T = carteduJoueur1(rg4, couleur4);
-        Carte3T = carteduJoueur1(rg5, couleur5);
-        Carte4T = carteduJoueur1(rg6, couleur6);
-        Carte5T = carteduJoueur1(rg7, couleur7);
+        Carte1T = retirer_cartePioche(rg3, couleur3);
+        Carte2T = retirer_cartePioche(rg4, couleur4);
+        Carte3T = retirer_cartePioche(rg5, couleur5);
+        Carte4T = retirer_cartePioche(rg6, couleur6);
+        Carte5T = retirer_cartePioche(rg7, couleur7);
         Carte Carte1J = new Carte(null, 0);
-        Carte1J = carteduJoueur1(rg1, couleur1);
+        Carte1J = retirer_cartePioche(rg1, couleur1);
         Carte Carte2J = new Carte(null, 0);
-        Carte2J = carteduJoueur1(rg2, couleur2);
+        Carte2J = retirer_cartePioche(rg2, couleur2);
        
         combic_jo.set(0, Carte1J);
         combic_jo.set(1, Carte2J);

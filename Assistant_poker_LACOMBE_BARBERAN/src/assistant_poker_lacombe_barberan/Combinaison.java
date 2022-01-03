@@ -18,6 +18,10 @@ public class Combinaison {
         tab=Combi; 
     }
     
+    // Convention : une combinasion possède un score ce qui nous permet de les différencier avec une hiérrarchie que nous avons établie :
+    
+    // voir photo liée avec le mail 
+    
 // méthode paire avec tableuau d'indices de cartes TRIES en argument 
 // Il faut acceder au rang de la carte qui est l'indice dans le tableau pour voir si deux rangs sont identiques 
     public Double Paire() {
@@ -72,6 +76,7 @@ public class Combinaison {
             if (rang_paire1 > rang_paire2) {
                 
                 return 3 * Math.pow(10, 10) + rang_paire1 * Math.pow(10, 8) + rang_paire2 * Math.pow(10, 6) + rang_solo * Math.pow(10, 4);
+                
             }
             if (rang_paire2 > rang_paire1) {
                 
@@ -85,8 +90,8 @@ public class Combinaison {
     public Double Brelan() {
         int cpt_brelan = 0;
         int rang_brelan = 0;
-        int rang_c1 = 0;
-        int rang_c2 = 0;
+        int rang_c1 = 0; // rang de la première carte qui ne fait pas partie du brelan 
+        int rang_c2 = 0;// rang de la deuxième carte qui ne fait pas partie du brelan
 
         for (int i = 0; i <= 2; i++) {
             if (tab.get(i).Rang == tab.get(i + 1).Rang && tab.get(i + 1).Rang == tab.get(i + 2).Rang) {
@@ -149,7 +154,7 @@ public class Combinaison {
         int rang_c2 = 0;
         int rang_c3 = 0;
         int rang_c4 = 0;
-
+// test si toutes les cartes ont la même couleur
         if (tab.get(0).Couleur == tab.get(1).Couleur && tab.get(1).Couleur == tab.get(2).Couleur && tab.get(2).Couleur == tab.get(3).Couleur && tab.get(3).Couleur == tab.get(4).Couleur) {
 
             cpt_Couleur += 1;
@@ -170,13 +175,15 @@ public class Combinaison {
     }
 
     public Double Full() {
-
+// l'idée ici c'est que nous savions ou se trouve le brelan et la paire deux cas possibles car coombinaisons triées
+// (* , * , * , -, - ) ou ( - , - , * , * ,* ) * => pour le brelan 
         int rang_paire = 0;
         int rang_brelan = 0;
         boolean brelan = false;
         boolean paire = false;
 
         for (int i = 0; i <= 2; i++) {
+            // test pour trouver le brelan 
             if (tab.get(i).Rang == tab.get(i + 1).Rang && tab.get(i + 1).Rang == tab.get(i + 2).Rang) {
 
                 brelan = true;
@@ -186,7 +193,7 @@ public class Combinaison {
 
         }
         for (int j = 0; j <= 3; j++) {
-            if (tab.get(j).Rang == tab.get(j + 1).Rang && tab.get(j).Rang != rang_brelan) {
+            if (tab.get(j).Rang == tab.get(j + 1).Rang && tab.get(j).Rang != rang_brelan) {// recherche si il y a la présence d'une paire 
 
                 paire = true;
                 rang_paire = tab.get(j).Rang;
@@ -202,21 +209,23 @@ public class Combinaison {
     }
 
     public Double Carre() {
+        //Méthode qui cherhce si une combinaison contient un carré
         int cpt_Carre = 0;
         int rang_Carre = 0;
         int rang_solo = 0;
-        if (tab.get(0).Rang == tab.get(1).Rang && tab.get(1).Rang == tab.get(2).Rang && tab.get(2).Rang == tab.get(3).Rang) {
-
-            cpt_Carre += 1;
+        if (tab.get(0).Rang == tab.get(1).Rang && tab.get(1).Rang == tab.get(2).Rang && tab.get(2).Rang == tab.get(3).Rang) {// vérification si il y a 4 cartes de même rang
+// comme nous avons seulement 5 cartes dans les combinaisons et le tabeleaux est rangé par rang croissant le carré se trouve soit ( * , * , * , * ,_) au début
+            cpt_Carre += 1;  //compte le nombre de carré
             rang_Carre = tab.get(0).Rang;
             rang_solo = tab.get(4).Rang;
+            // Ou alors le carré se trouve à la fin ( _ , * , * , * ,* )
         } else if (tab.get(1).Rang == tab.get(2).Rang && tab.get(2).Rang == tab.get(3).Rang && tab.get(3).Rang == tab.get(4).Rang) {
             cpt_Carre += 1;
             rang_Carre = tab.get(1).Rang;
             rang_solo = tab.get(0).Rang;
         }
         if (cpt_Carre == 1) {
-            return 8 * Math.pow(10, 10) + rang_Carre * Math.pow(10, 8) + rang_solo * Math.pow(10, 6);
+            return 8 * Math.pow(10, 10) + rang_Carre * Math.pow(10, 8) + rang_solo * Math.pow(10, 6);// convention
         }
 
         return 0.0;
