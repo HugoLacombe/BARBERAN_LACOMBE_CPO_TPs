@@ -43,7 +43,7 @@ public class Simulation {
         k = 2;
         for (int j = 26;
                 j < 39; j++) {
-            String sym = "Trèfle";
+            String sym = "Trefle";
 
             Pioche.add (new Carte(sym, k));
             k += 1;
@@ -53,7 +53,7 @@ public class Simulation {
         for (int j = 39;
                 j
                 < 52; j++) {
-            String sym = "Carreaux";
+            String sym = "Carreau";
 
             Pioche.add(new Carte(sym, k));
             k += 1;
@@ -133,33 +133,7 @@ public class Simulation {
         Pioche.remove(indice1); 
         return Carte1;
     }
-/*/
-     public Carte carteduJoeur2(){
-     
-        int indice2=0; 
-        
-        Scanner sc = new Scanner(System.in);
-         
-        
-        System.out.println("Saissisez la couleur de votre deuxième carte : ");
-         String Couleurc2= sc.nextLine();
-          System.out.println("Saissisez le rang de votre deuxième carte : ");
-         int Rangc2 = sc.nextInt();
-        for(int i = 0 ; i<Pioche.size();i++){
-            
-            if(Couleurc2 == Pioche.get(i).Couleur && Rangc2 == Pioche.get(i).Rang){
-                indice2=i; 
-            }
-            
-        }
-    
-        Carte Carte2 = new Carte(Couleurc2,  Rangc2); 
-       
-        Pioche.remove(indice2); 
-     
-        return  Carte2 ; 
-    }
-/*/
+
      
     public void AvantFlop() {
         Vict = 0.0;
