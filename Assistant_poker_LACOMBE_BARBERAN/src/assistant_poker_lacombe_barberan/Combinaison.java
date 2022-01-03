@@ -147,7 +147,7 @@ public class Combinaison {
 
     }
 
-    public Double Couleur() {
+    public Double Couleur() { // méthode qui permet de ssavoir permet de tester si une coueleur est possible dans la combinaison 
         int cpt_Couleur = 0;
         int rang_Couleur = 0;
         int rang_c1 = 0;

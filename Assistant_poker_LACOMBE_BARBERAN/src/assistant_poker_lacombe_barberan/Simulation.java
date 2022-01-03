@@ -189,7 +189,7 @@ public class Simulation {
                                     if (scorec_jo == scorec_ad) {
                                         Egal += 1.0;
                                     }
-                                    cpt += 1.0;
+                                    cpt += 1.0; // on compte le nombre de combinaisons effectuées 
 
                                 }
 
@@ -293,10 +293,12 @@ public class Simulation {
             combic_ad.add(null);
             combic_jo.add(null);
         }
+        
         Carte Carte1T = new Carte(null, 0);
         Carte Carte2T = new Carte(null, 0);
         Carte Carte3T = new Carte(null, 0);
         Carte Carte4T = new Carte(null, 0);
+        //On retire les cartes connues 
         Carte1T = retirer_cartePioche(rg3, couleur3);
         Carte2T = retirer_cartePioche(rg4, couleur4);
         Carte3T = retirer_cartePioche(rg5, couleur5);
@@ -316,7 +318,7 @@ public class Simulation {
         combic_ad.set(3, Carte2T);
         combic_ad.set(4, Carte3T);
         combic_ad.set(5, Carte4T);
-
+// 3 cartes inconnues 3 boucles 
         for (int i = 0; i < Pioche.size(); i++) {
 
             for (int j = i + 1; j < Pioche.size(); j++) {
@@ -353,6 +355,7 @@ public class Simulation {
     }
 
     public void ApresRiver(int rg1, int rg2, String couleur1, String couleur2, int rg3, int rg4, String couleur3, String couleur4, int rg5, String couleur5, int rg6, String couleur6, int rg7, String couleur7) {
+       // toutes les cartes de la talbe  sont dévoilées, ainsi on prend leurs rangs et leur couleur en argument 
         Vict = 0.0;
         Egal = 0.0;
         Def = 0.0;
@@ -392,7 +395,7 @@ public class Simulation {
         combic_ad.set(4, Carte3T);
         combic_ad.set(5, Carte4T);
         combic_ad.set(6, Carte5T);
-
+// 2 boucle car il ne reste plus que les cartes du joeur adverses inconnues
         for (int i = 0; i < Pioche.size(); i++) {
 
             for (int j = i + 1; j < Pioche.size(); j++) {
